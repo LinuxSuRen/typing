@@ -40,7 +40,7 @@ public class CategoryUI extends JPanel {
     private List<KeyFire> keyFires = new ArrayList<>();
 
     public CategoryUI() {
-        this.setLayout(new GridLayout());
+        this.setLayout(new GridLayout(0,4));
     }
 
     public void loadData(InputStream input) {
@@ -48,6 +48,7 @@ public class CategoryUI extends JPanel {
         while(this.getComponentCount() > 0) {
             this.remove(0);
         }
+        getParent().repaint();
 
         // load the new data
         Yaml yaml = new Yaml(new Constructor(TypingSource.class, new LoaderOptions()));
@@ -85,14 +86,18 @@ public class CategoryUI extends JPanel {
 
     public void loadSync() {
         SwingUtilities.invokeLater(new Thread(() -> {
+            add(new JLabel("loading..."));
+            getParent().repaint();
+
             try {
                 URL url = new URL("https://gitee.com/linuxsuren/test/raw/master/typing.yaml");
 
                 loadData(url.openStream());
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
             } catch (IOException e) {
+                add(new JLabel(e.getMessage()));
                 throw new RuntimeException(e);
+            } finally {
+                getParent().repaint();
             }
         }));
     }

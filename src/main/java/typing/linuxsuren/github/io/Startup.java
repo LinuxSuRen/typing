@@ -20,7 +20,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Startup {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         JFrame frame = new JFrame("Typing");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -54,6 +54,8 @@ public class Startup {
         rootPanel.add(toolPanel,BorderLayout.NORTH);
 
         frame.getContentPane().add(rootPanel);
+
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         frame.setLocationRelativeTo(null);
         frame.setSize(1300, 600);
