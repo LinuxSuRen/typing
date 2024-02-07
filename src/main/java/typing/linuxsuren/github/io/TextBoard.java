@@ -17,6 +17,8 @@ limitations under the License.
 package typing.linuxsuren.github.io;
 
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,11 @@ public class TextBoard extends JComponent implements KeyFire<String> {
     private int index;
 
     public TextBoard() {
-        this.setLayout(new FlowLayout());
+        this.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 8));
+
+        CompoundBorder border = new CompoundBorder(this.getBorder(),
+                new EmptyBorder(0, 30, 0, 30));
+        this.setBorder(border);
     }
 
     public void loadText(String text) {
@@ -36,6 +42,11 @@ public class TextBoard extends JComponent implements KeyFire<String> {
         labels.clear();
         for (String item : text.split("")) {
             JLabel label = new JLabel(item);
+            if (item.equals(" ")) {
+                CompoundBorder border = new CompoundBorder(label.getBorder(),
+                        new EmptyBorder(0, 10, 0, 10));
+                label.setBorder(border);
+            }
             label.setFont(new Font("",Font.PLAIN, 20));
             label.setOpaque(true);
 

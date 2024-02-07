@@ -17,6 +17,8 @@ limitations under the License.
 package typing.linuxsuren.github.io;
 
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.Date;
 
@@ -31,6 +33,11 @@ public class TypingStatUI extends JPanel implements KeyFire<Boolean> {
 
     public TypingStatUI() {
         this.setLayout(new GridLayout(4,1));
+
+        CompoundBorder border = new CompoundBorder(
+                new EmptyBorder(0, 30, 0, 30),
+                this.getBorder());
+        this.setBorder(border);
 
         this.add(new Label("Speed"));
         this.add(speed);
