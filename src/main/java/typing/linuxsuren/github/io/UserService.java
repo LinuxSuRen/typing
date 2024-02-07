@@ -91,6 +91,7 @@ public class UserService {
         for (User u : users.getItems()) {
             if (u.getName().equals(user.getName()) ) {
                 success = u.getPassword().equals(user.getPassword());
+                user = u;
                 break;
             }
         }

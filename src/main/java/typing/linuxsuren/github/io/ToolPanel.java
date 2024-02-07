@@ -20,6 +20,7 @@ public class ToolPanel extends JPanel {
         butMap.put("Refresh", ToolCode.Refresh);
         butMap.put("Login", ToolCode.Login);
         butMap.put("Logout", ToolCode.Logout);
+        butMap.put(ToolCode.CreateUser.name(), ToolCode.CreateUser);
 
         for (String key : butMap.keySet()) {
             JButton button = new JButton(key);
@@ -48,6 +49,8 @@ public class ToolPanel extends JPanel {
         for (String key : butMap.keySet()) {
             if (butMap.get(key) == ToolCode.Login) {
                 jButMap.get(key).setVisible(currentUser == null);
+            } else if (butMap.get(key) == ToolCode.CreateUser) {
+                jButMap.get(key).setVisible(currentUser != null && currentUser.isParent());
             } else {
                 jButMap.get(key).setVisible(currentUser != null);
             }
@@ -60,5 +63,5 @@ public class ToolPanel extends JPanel {
 }
 
 enum ToolCode {
-    Home, Refresh, Login, Logout
+    Home, Refresh, Login, Logout, CreateUser
 }
