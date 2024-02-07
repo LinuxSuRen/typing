@@ -60,12 +60,19 @@ public class Startup {
                 toolPanel.refresh();
                 cardLayout.show(centerPanel,"user");
                 userUI.refresh();
+            } else if (data == ToolCode.CreateUser) {
+                cardLayout.show(centerPanel,"user");
+                userUI.setToCreate(true);
+                userUI.refresh();
             }
         });
         userUI.addListener((key, data) -> {
             if (data == UserUI.Code.Login) {
                 toolPanel.refresh();
                 cardLayout.show(centerPanel,"category");
+            } else if (data == UserUI.Code.Logout) {
+                toolPanel.refresh();
+                cardLayout.show(centerPanel,"user");
             }
         });
 

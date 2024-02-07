@@ -22,6 +22,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class UserUI extends JPanel {
     private JTextField username = new JTextField(20);
@@ -30,6 +32,8 @@ public class UserUI extends JPanel {
     private JButton loginBut = new JButton("Login");
     private JButton createBut = new JButton("Create");
     private List<KeyFire> keyFires = new ArrayList<>();
+    private boolean toCreate;
+    private Timer timer = null;
 
     public UserUI() {
         refresh();
@@ -59,8 +63,8 @@ public class UserUI extends JPanel {
 
     public void refresh() {
         boolean hasAdmin = userSvc.getUserCount() > 0;
-        loginBut.setVisible(hasAdmin);
-        createBut.setVisible(!hasAdmin);
+        loginBut.setVisible(hasAdmin && !toCreate);
+        createBut.setVisible(!hasAdmin || toCreate);
 
         username.setText("");
         password.setText("");
@@ -85,6 +89,14 @@ public class UserUI extends JPanel {
             keyFires.forEach((k) -> {
                 k.fire("", Code.Login);
             });
+
+            timer = new Timer(true);
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    timeout();
+                }
+            }, 1000 * 60 * 25);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         } finally {
@@ -93,21 +105,43 @@ public class UserUI extends JPanel {
     }
 
     public void logout() {
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
         userSvc.logout();
+
+        keyFires.forEach((k) -> {
+            k.fire("", Code.Logout);
+        });
+    }
+
+    public void timeout() {
+        logout();
+        refresh();
+
+        JOptionPane.showMessageDialog(this, "Please take a break!");
     }
 
     public void create() {
         try {
             userSvc.createUser(new User(username.getText(), password.getText()));
+
+            JOptionPane.showMessageDialog(this, "User created!");
         } catch (Exception ee) {
             JOptionPane.showMessageDialog(this, ee.getMessage());
         } finally {
+            toCreate = false;
             refresh();
         }
     }
 
     public void addListener(KeyFire key) {
         keyFires.add(key);
+    }
+
+    public void setToCreate(boolean toCreate) {
+        this.toCreate = toCreate;
     }
 
     enum Code {
