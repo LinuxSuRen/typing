@@ -24,6 +24,7 @@ public class Startup {
         JFrame frame = new JFrame("Typing");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        UserUI userUI = new UserUI();
         TypingUI typingUI = new TypingUI();
         CategoryUI categoryUI = new CategoryUI();
         categoryUI.loadSync();
@@ -32,19 +33,39 @@ public class Startup {
         CardLayout cardLayout = new CardLayout();
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(cardLayout);
+        centerPanel.add("user", userUI);
         centerPanel.add("category", new JScrollPane(categoryUI));
         centerPanel.add("typing", typingUI);
-        cardLayout.show(centerPanel,"category");
+        cardLayout.show(centerPanel,"user");
         categoryUI.addListener((key, data) -> {
             cardLayout.show(centerPanel,"typing");
         });
 
         ToolPanel toolPanel = new ToolPanel();
         toolPanel.addKeyFire((key, data) -> {
+            User currentUser = UserService.getInstance().getCurrentUser();
+            if (currentUser == null) {
+                data = ToolCode.Login;
+            }
+
             if (data == ToolCode.Home) {
                 cardLayout.show(centerPanel,"category");
             } else if (data == ToolCode.Refresh) {
                 categoryUI.loadSync();
+            } else if (data == ToolCode.Login) {
+                cardLayout.show(centerPanel,"user");
+                userUI.refresh();
+            } else if (data == ToolCode.Logout) {
+                userUI.logout();
+                toolPanel.refresh();
+                cardLayout.show(centerPanel,"user");
+                userUI.refresh();
+            }
+        });
+        userUI.addListener((key, data) -> {
+            if (data == UserUI.Code.Login) {
+                toolPanel.refresh();
+                cardLayout.show(centerPanel,"category");
             }
         });
 
