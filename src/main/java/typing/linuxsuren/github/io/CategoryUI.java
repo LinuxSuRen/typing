@@ -21,6 +21,8 @@ import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -48,7 +50,6 @@ public class CategoryUI extends JPanel {
         while(this.getComponentCount() > 0) {
             this.remove(0);
         }
-        getParent().repaint();
 
         // load the new data
         Yaml yaml = new Yaml(new Constructor(TypingSource.class, new LoaderOptions()));
@@ -57,9 +58,17 @@ public class CategoryUI extends JPanel {
         System.out.println("data loaded");
         for (TypingCategory category : source.getItems()) {
             JPanel item = new JPanel();
+            item.setLayout(new BoxLayout(item, BoxLayout.Y_AXIS));
             item.setName(category.getName());
-            item.add(new JLabel(item.getName()));
-            item.setBorder(new LineBorder(Color.BLACK));
+            item.add(createLabel(item.getName()));
+            item.add(createLabel(category.getDescription()));
+            item.setMinimumSize(new Dimension(200, 200));
+
+            CompoundBorder border = new CompoundBorder(
+                    new EmptyBorder(6, 6, 6, 6),
+                    new LineBorder(Color.BLACK, 1, true));
+
+            item.setBorder(border);
             this.add(item);
 
             item.addMouseListener(new MouseAdapter() {
@@ -87,7 +96,6 @@ public class CategoryUI extends JPanel {
     public void loadSync() {
         SwingUtilities.invokeLater(new Thread(() -> {
             add(new JLabel("loading..."));
-            getParent().repaint();
 
             try {
                 URL url = new URL("https://gitee.com/linuxsuren/test/raw/master/typing.yaml");
@@ -96,13 +104,17 @@ public class CategoryUI extends JPanel {
             } catch (IOException e) {
                 add(new JLabel(e.getMessage()));
                 throw new RuntimeException(e);
-            } finally {
-                getParent().repaint();
             }
         }));
     }
 
     public void addListener(KeyFire key) {
         keyFires.add(key);
+    }
+
+    public JLabel createLabel(String text) {
+        JLabel label = new JLabel(text);
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        return label;
     }
 }

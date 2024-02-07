@@ -32,8 +32,8 @@ public class Startup {
         CardLayout cardLayout = new CardLayout();
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(cardLayout);
-        centerPanel.add("category",categoryUI);
-        centerPanel.add("typing",typingUI);
+        centerPanel.add("category", new JScrollPane(categoryUI));
+        centerPanel.add("typing", typingUI);
         cardLayout.show(centerPanel,"category");
         categoryUI.addListener((key, data) -> {
             cardLayout.show(centerPanel,"typing");
