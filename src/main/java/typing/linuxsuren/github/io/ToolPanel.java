@@ -11,12 +11,15 @@ import java.util.Map;
 public class ToolPanel extends JPanel {
     private List<KeyFire> keyFires = new ArrayList<>();
     private Map<String, ToolCode> butMap = new HashMap<>();
+    private Map<String, JButton> jButMap = new HashMap<>();
 
     public ToolPanel() {
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         butMap.put("Home", ToolCode.Home);
         butMap.put("Refresh", ToolCode.Refresh);
+        butMap.put("Login", ToolCode.Login);
+        butMap.put("Logout", ToolCode.Logout);
 
         for (String key : butMap.keySet()) {
             JButton button = new JButton(key);
@@ -33,7 +36,21 @@ public class ToolPanel extends JPanel {
                     }
                 }
             });
+            jButMap.put(key, button);
             this.add(button);
+        }
+
+        refresh();
+    }
+
+    public void refresh() {
+        User currentUser = UserService.getInstance().getCurrentUser();
+        for (String key : butMap.keySet()) {
+            if (butMap.get(key) == ToolCode.Login) {
+                jButMap.get(key).setVisible(currentUser == null);
+            } else {
+                jButMap.get(key).setVisible(currentUser != null);
+            }
         }
     }
 
@@ -43,5 +60,5 @@ public class ToolPanel extends JPanel {
 }
 
 enum ToolCode {
-    Home, Refresh
+    Home, Refresh, Login, Logout
 }
