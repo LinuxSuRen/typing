@@ -56,7 +56,7 @@ public class TextBoard extends JComponent implements KeyFire<String> {
     }
 
     public void fire(String key, String data) {
-        if (index >= labels.size()) {
+        if (!this.isVisible() || index >= labels.size()) {
             return;
         }
 

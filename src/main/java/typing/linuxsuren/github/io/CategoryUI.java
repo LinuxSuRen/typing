@@ -29,7 +29,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,10 +45,7 @@ public class CategoryUI extends JPanel {
     }
 
     public void loadData(InputStream input) {
-        // clear the existing components
-        while(this.getComponentCount() > 0) {
-            this.remove(0);
-        }
+        reset();
 
         // load the new data
         Yaml yaml = new Yaml(new Constructor(TypingSource.class, new LoaderOptions()));
@@ -94,18 +90,35 @@ public class CategoryUI extends JPanel {
     }
 
     public void loadSync() {
-        SwingUtilities.invokeLater(new Thread(() -> {
-            add(new JLabel("loading..."));
+        reset();
+        add(new JLabel("loading..."));
 
+        new Thread(() -> {
             try {
+                Thread.sleep(3000);
                 URL url = new URL("https://gitee.com/linuxsuren/test/raw/master/typing.yaml");
 
-                loadData(url.openStream());
+                InputStream input = url.openStream();
+
+                SwingUtilities.invokeLater(new Thread(() -> {
+                    loadData(input);
+                }));
             } catch (IOException e) {
                 add(new JLabel(e.getMessage()));
                 throw new RuntimeException(e);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            } finally {
+                this.revalidate();
             }
-        }));
+        }).start();
+    }
+
+    private void reset() {
+        // clear the existing components
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
     }
 
     public void addListener(KeyFire key) {
