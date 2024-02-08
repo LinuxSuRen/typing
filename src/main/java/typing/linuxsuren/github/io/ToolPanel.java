@@ -18,7 +18,6 @@ public class ToolPanel extends JPanel {
 
         butMap.put("Home", ToolCode.Home);
         butMap.put("Refresh", ToolCode.Refresh);
-        butMap.put("Login", ToolCode.Login);
         butMap.put("Logout", ToolCode.Logout);
         butMap.put(ToolCode.CreateUser.name(), ToolCode.CreateUser);
 
@@ -47,9 +46,7 @@ public class ToolPanel extends JPanel {
     public void refresh() {
         User currentUser = UserService.getInstance().getCurrentUser();
         for (String key : butMap.keySet()) {
-            if (butMap.get(key) == ToolCode.Login) {
-                jButMap.get(key).setVisible(currentUser == null);
-            } else if (butMap.get(key) == ToolCode.CreateUser) {
+            if (butMap.get(key) == ToolCode.CreateUser) {
                 jButMap.get(key).setVisible(currentUser != null && currentUser.isParent());
             } else {
                 jButMap.get(key).setVisible(currentUser != null);

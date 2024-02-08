@@ -18,14 +18,33 @@ package typing.linuxsuren.github.io;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
     private TextBoard textBoard = new TextBoard();
     private TypingStatUI typingStatUI = new TypingStatUI();
+    private DroppingGameUI gameUI = new DroppingGameUI();
+    private CardLayout centerCard = new CardLayout();
+    private JPanel centerPanel = createCenterPanel();
+    private JPanel leftPanel = createLeftPanel();
+    private String practiceText;
 
     public TypingUI() {
         Keyboard keyboard = new Keyboard();
         keyboard.addKeyListener(textBoard);
+        keyboard.addKeyListener(gameUI);
+
+        Toolkit.getDefaultToolkit().addAWTEventListener(keyboard, AWTEvent.KEY_EVENT_MASK);
+
+        this.setLayout(new BorderLayout());
+        this.add(leftPanel, BorderLayout.WEST);
+        this.add(centerPanel, BorderLayout.CENTER);
+        this.add(keyboard,BorderLayout.SOUTH);
+        this.add(typingStatUI,BorderLayout.EAST);
+    }
+
+    private JPanel createCenterPanel() {
+        JPanel panel = new JPanel();
 
         textBoard.addKeyFire(typingStatUI);
         textBoard.addKeyFire(new KeyFire<Boolean>() {
@@ -51,16 +70,40 @@ public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
             }
         });
 
-        Toolkit.getDefaultToolkit().addAWTEventListener(keyboard, AWTEvent.KEY_EVENT_MASK);
+        panel.setLayout(centerCard);
+        panel.add(gameUI, "game");
+        panel.add(textBoard, "normal");
+        centerCard.show(panel, "normal");
+        return panel;
+    }
 
-        this.setLayout(new BorderLayout());
-        this.add(textBoard, BorderLayout.CENTER);
-        this.add(keyboard,BorderLayout.SOUTH);
-        this.add(typingStatUI,BorderLayout.EAST);
+    private JPanel createLeftPanel() {
+        JPanel panel = new JPanel();
+
+        JButton normalBut = new JButton("Normal");
+        normalBut.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                centerCard.show(centerPanel, "normal");
+            }
+        });
+        JButton gameBut = new JButton("Game");
+        gameBut.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                centerCard.show(centerPanel, "game");
+                gameUI.load(practiceText);
+            }
+        });
+
+        panel.add(normalBut);
+        panel.add(gameBut);
+        return panel;
     }
 
     @Override
     public void fire(String key, TypingCategory data) {
+        practiceText = data.getText();
         textBoard.loadText(data.getText());
     }
 }
