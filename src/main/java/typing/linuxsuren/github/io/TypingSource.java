@@ -21,6 +21,7 @@ import java.util.List;
 public class TypingSource {
     private String author;
     private List<TypingCategory> items;
+    private List<Dictionary> dictionary;
 
     public String getAuthor() {
         return author;
@@ -36,5 +37,13 @@ public class TypingSource {
 
     public void setItems(List<TypingCategory> items) {
         this.items = items;
+    }
+
+    public List<Dictionary> getDictionary() {
+        return dictionary;
+    }
+
+    public void setDictionary(List<Dictionary> dictionary) {
+        this.dictionary = dictionary;
     }
 }
