@@ -1,0 +1,96 @@
+author: LinuxSuRen
+items:
+  - name: basic-1
+    text: aa asss ass dddf asdf fff aass
+    level: 0
+    description: Very basic level
+  - name: basic-2
+    text: ghh gggh hhhg ssdd dghas
+    level: 0
+    description: Very basic level
+  - name: basic-3
+    text: jk jjkk kkll llkkj ghkll gghhk
+    level: 0
+    description: Very basic level
+  - name: basic-4
+    text: qwer qqee rrww qqrr wwrr qqww qwer reqw
+    level: 0
+    description: Very basic level
+  - name: basic-5
+    text: tyghbn nhytgb thbngy ttyyt hbngy
+    level: 0
+    description: Very basic level
+  - name: basic-6
+    text: yuii opyu iiuuyy oopp
+    level: 0
+    description: Very basic level
+  - name: basic-7
+    text: zxcc bnzxc mnbnm zcbm nvxx
+    level: 0
+    description: Very basic level
+  - name: grade-1
+    text: hello hi goodbye bye thank you welcome school bag book pencil pen ruler eraser crayon sharpener desk chair blackboard computer mouse keyboard monitor printer scanner speaker headphone microphone game toy ball bat doll cat dog elephant fish giraffe horse lion monkey panda rabbit sheep tiger zoo apple banana cherry grape orange pear peach pineapple strawberry watermelon hot dog hamburger pizza cake donut ice cream chocolate candy
+  - name: grade-2
+    text: bag book pen pencil ruler eraser sharpener crayon school desk chair blackboard computer mouse keyboard monitor printer scanner speaker headphone microphone toy ball doll cat dog elephant fish giraffe horse lion monkey panda rabbit sheep tiger zoo apple banana cherry grape orange pear peach pineapple strawberry watermelon hot dog hamburger pizza cake donut ice cream chocolate candy happy sad angry excited tired hungry thirsty sick healthy cold flu cough headache fever stomachache toothache nosebleed bump bruise scratch cut burn fall hurt pain better worse yes no please thank you sorry excuse me how are you
+  - name: grade-3
+    text: boy girl teacher student classroom window door blackboard chalk desk chair computer mouse keyboard monitor printer scanner book bag pencil pen ruler eraser sharpener crayon color red blue yellow green orange purple brown white black pink gray brown eye ear nose mouth face hand finger arm leg foot head body hair skin tongue teeth face forehead cheek neck shoulder chest belly back hip buttock knee ankle foot toe hairline forehead wrinkle mole freckle pimple acne scar birthmark tattoo eyebrow eyelid eyeball iris pupil conjunctiva eyelash eyebrow nose bridge nostril nostril hair cheekbone dimple chin jawbone Adam's apple ear canal eardrum earlobe helix tragus antitragus concha earlobe crease neckline collarbone cleavage nipple areola nipple areola crease abdomen navel hipbone buttock cheek thigh calf Achilles tendon heel instep toe web space big toe second toe third toe fourth toe little toe nail bed nail plate nail fold nail matrix cuticle cuticle line half moon white moon red moon brown spot
+  - name: grade-4
+    text: classroom library playground gymnasium office teacher's office restroom canteen art room music room computer room science lab library media center principal vice principal teacher student boy girl friend homework lesson schedule timetable breakfast lunch dinner snack recess breakfast time lunch time dinner time snack time recess time morning afternoon evening night weekday weekend holiday vacation spring summer autumn winter
+dictionary:
+  # https://www.cambridgeenglish.org/images/23387-ket-schools-vocabulary-list.pdf
+  - word: able
+    meaning: be very clever or very good at doing something
+    example: I'm able to find it.
+  - word: about
+    meaning: to introduce who or what something relates to or concerns
+    scope:
+      - ket
+  - word: above
+    meaning: it is directly over it or higher than it
+  - word: act
+    meaning: you do something for a particular purpose
+  - word: accident
+    meaning: a vehicle hits a person, an object, or another vehicle, causing injury or damage
+    example: She was involved in a serious car accident last week.
+  - word: across
+    meaning: go from one side of it to the other
+  - word: activity
+    meaning: a situation in which a lot of things are happening or being done
+  - word: actor
+    meaning: someone whose job is acting in plays or films
+  - word: actually
+    meaning: to indicate that a situation exists or happened, or to emphasize that it is true
+  - word: add
+    meaning: you put it in or on the other thing, to increase, complete, or improve it
+  - word: address
+    meaning: the number of the house, flat, or apartment and the name of the street and the town where you live or work
+  - word: adult
+    meaning: a mature, fully developed person
+  - word: advanced
+    meaning: modern and has been developed from an earlier version of the same thing
+  - word: adventure
+    meaning: they become involved in an unusual, exciting, and rather dangerous journey or series of events
+  - word:  advertisement
+    meaning: an announcement online, or in a newspaper, on television, or on a poster about something such as a product, event, or job
+    example: Miss Parrish recently placed an advertisement in the local newspaper.
+  - word: aeroplane
+    meaning: a vehicle with wings and one or more engines that enable it to fly through the air
+  - word: afraid
+    meaning: you are frightened because you think that something very unpleasant is going to happen to you
+    example: She did not seem at all afraid.
+  - word: after
+    meaning: it happens during the period of time that follows that date or event
+  - word: afternoon
+    meaning: the part of each day which begins at lunchtime and ends at about six o'clock
+    example: He's arriving in the afternoon.
+  - word: afterwards
+    meaning: you do it or it happens after a particular event or time that has already been mentioned
+    example: Shortly afterwards, police arrested four suspects.
+  - word: again
+    meaning: indicate that something happens a second time, or after it has already happened before
+    example: He kissed her again.
+  - word: age
+    meaning: the number of years that you have lived
+    example: She has a nephew who is just ten years of age.
+  - word: school
+    meaning: a place where children are educated

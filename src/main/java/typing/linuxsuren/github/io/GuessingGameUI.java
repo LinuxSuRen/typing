@@ -58,7 +58,7 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         targets.clear();
         meaningPanel.removeAll();
         for (String c : vocabulary.getMeaning().split("")) {
-            JLabel label = new JLabel(c);
+            JLabel label = newLabel(c);
             label.setName(c);
             label.setOpaque(true);
             meaningPanel.add(label);
@@ -69,7 +69,7 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         vocabularyPanel.removeAll();
         for (int i = 0; i < vocabulary.getWord().split("").length; i++) {
             String c = vocabulary.getWord().split("")[i];
-            JLabel label = new JLabel(c);
+            JLabel label = newLabel(c);
             label.setName(c);
             if (i % 2 != 0) {
                 label.setText("_");
@@ -81,12 +81,18 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         examplePanel.removeAll();
         if (vocabulary.getExample() != null) {
             for (String c : vocabulary.getExample().split("")) {
-                examplePanel.add(new JLabel(c));
+                examplePanel.add(newLabel(c));
             }
         }
         examplePanel.setVisible(false);
         revalidate();
         repaint();
+    }
+
+    private JLabel newLabel(String text) {
+        JLabel label = new JLabel(text);
+        label.setFont(new Font("", Font.PLAIN, 20));
+        return label;
     }
 
     private void hideRestPart(JComponent com, int count) {
