@@ -76,8 +76,22 @@ public class UserService {
         write(users);
     }
 
-    public void deleteUser(User user) {
+    public void markAsLearned(String word) {
+        if (currentUser == null) {
+            return;
+        }
 
+        Users users = read();
+        boolean needToUpdate = false;
+        for (User item : users.getItems()) {
+            if (item.getName().equals(currentUser.getName())) {
+                needToUpdate = item.addLearnedWord(word);
+                break;
+            }
+        }
+        if (needToUpdate) {
+            write(users);
+        }
     }
 
     public void login(User user) throws Exception {

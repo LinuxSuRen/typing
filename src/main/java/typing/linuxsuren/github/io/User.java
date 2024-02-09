@@ -16,6 +16,7 @@ limitations under the License.
 
 package typing.linuxsuren.github.io;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -58,6 +59,23 @@ public class User {
 
     public List<String> getLearnedWords() {
         return learnedWords;
+    }
+
+    public boolean addLearnedWord(String word) {
+        if (learnedWords == null) {
+            learnedWords = new ArrayList<>();
+        }
+        boolean nonExist = true;
+        for (String w : learnedWords) {
+            if (w.equals(word)) {
+                nonExist = false;
+                break;
+            }
+        }
+        if (nonExist) {
+            learnedWords.add(word);
+        }
+        return nonExist;
     }
 
     public void setLearnedWords(List<String> learnedWords) {
