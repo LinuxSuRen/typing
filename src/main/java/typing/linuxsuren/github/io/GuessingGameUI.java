@@ -17,44 +17,65 @@ limitations under the License.
 package typing.linuxsuren.github.io;
 
 import javax.swing.*;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class GuessingGameUI extends JPanel implements KeyFire<String> {
-    private JPanel vocabularyPanel = new JPanel();
-    private JPanel meaningPanel = new JPanel();
-    private JPanel examplePanel = new JPanel();
-    private List<JLabel> targets = new ArrayList<>();
+    private final JPanel vocabularyPanel = new JPanel();
+    private final JPanel meaningPanel = new JPanel();
+    private final JPanel examplePanel = new JPanel();
+    private final JPanel statusPanel = new JPanel();
+    private final List<JLabel> targets = new ArrayList<>();
     private List<Vocabulary> vocabularyList;
     private int hiddenIndex;
 
     public GuessingGameUI() {
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        JPanel centerPanel = new JPanel();
 
-        this.add(vocabularyPanel);
-        this.add(meaningPanel);
-        this.add(examplePanel);
+        this.setLayout(new BorderLayout());
+        this.add(statusPanel, BorderLayout.NORTH);
+        this.add(centerPanel, BorderLayout.CENTER);
+
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+        centerPanel.add(vocabularyPanel);
+        centerPanel.add(meaningPanel);
+        centerPanel.add(examplePanel);
     }
 
-    public void loadVocabularyList(List<Vocabulary> vocabularyList) {
-        this.vocabularyList = vocabularyList;
-        if (vocabularyList == null || vocabularyList.isEmpty()) {
+    public void loadVocabularyList(List<Vocabulary> vList) {
+        if (vList == null || vList.isEmpty()) {
             return;
+        }
+        this.vocabularyList = vList;
+
+        User user = UserService.getInstance().getCurrentUser();
+        if (user != null && user.getLearnedWords() != null) {
+            for (String w : user.getLearnedWords()) {
+                for (Vocabulary v : this.vocabularyList) {
+                    if (v.getWord().equals(w)) {
+                        this.vocabularyList.remove(v);
+                        break;
+                    }
+                }
+            }
         }
 
         loadNextVocabulary();
     }
 
+    private int nextVocabularyIndex;
     private void loadNextVocabulary() {
-        if (vocabularyList.size() == 0) {
+        if (vocabularyList.isEmpty()) {
             return;
         }
 
-        Vocabulary vocabulary = vocabularyList.get(0);
-        vocabularyList.remove(0);
+        int total = vocabularyList.size();
+        nextVocabularyIndex = new Random().nextInt(total - 1);
+
+        updateStatusPanel();
+        Vocabulary vocabulary = vocabularyList.get(nextVocabularyIndex);
         targets.clear();
         meaningPanel.removeAll();
         for (String c : vocabulary.getMeaning().split("")) {
@@ -111,8 +132,10 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
             return;
         }
 
-        if (targets.size() == 0) {
+        if (targets.isEmpty()) {
             if (examplePanel.isVisible()) {
+                UserService.getInstance().markAsLearned(vocabularyList.get(nextVocabularyIndex).getWord());
+                vocabularyList.remove(nextVocabularyIndex);
                 loadNextVocabulary();
             } else {
                 examplePanel.setVisible(true);
@@ -133,7 +156,7 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
     }
 
     private void trimNonLetter() {
-        if (targets.size() == 0) {
+        if (targets.isEmpty()) {
             return;
         }
         JLabel label = targets.get(0);
@@ -150,5 +173,12 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         if (targets.size() > hiddenIndex) {
             targets.get(hiddenIndex).setVisible(true);
         }
+    }
+
+    private void updateStatusPanel() {
+        int total = this.vocabularyList.size();
+        statusPanel.removeAll();
+        statusPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        statusPanel.add(new JLabel("Remain: " + total));
     }
 }

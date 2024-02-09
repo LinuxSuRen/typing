@@ -107,7 +107,7 @@ public class CategoryUI extends JPanel {
             }
 
             if (dataSource == null || dataSource.isEmpty()) {
-                dataSource = "https://gitee.com/linuxsuren/test/raw/master/typing.yaml";
+                dataSource = "https://linuxsuren.github.io/typing/typing.yaml";
             }
 
             try {
