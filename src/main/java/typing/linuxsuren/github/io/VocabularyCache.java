@@ -18,32 +18,21 @@ package typing.linuxsuren.github.io;
 
 import java.util.List;
 
-public class TypingSource {
-    private String author;
-    private List<TypingCategory> items;
-    private List<Vocabulary> dictionary;
+public class VocabularyCache {
+    private List<Vocabulary> vocabularyList;
+    private static final VocabularyCache instance = new VocabularyCache();
 
-    public String getAuthor() {
-        return author;
+    private VocabularyCache() {}
+
+    public static VocabularyCache getInstance() {
+        return instance;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public List<Vocabulary> getVocabularyList() {
+        return vocabularyList;
     }
 
-    public List<TypingCategory> getItems() {
-        return items;
-    }
-
-    public void setItems(List<TypingCategory> items) {
-        this.items = items;
-    }
-
-    public List<Vocabulary> getDictionary() {
-        return dictionary;
-    }
-
-    public void setDictionary(List<Vocabulary> dictionary) {
-        this.dictionary = dictionary;
+    public void setVocabularyList(List<Vocabulary> vocabularyList) {
+        this.vocabularyList = vocabularyList;
     }
 }

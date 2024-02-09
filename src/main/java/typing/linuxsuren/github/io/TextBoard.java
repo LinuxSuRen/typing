@@ -23,17 +23,12 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TextBoard extends JComponent implements KeyFire<String> {
+public class TextBoard extends JPanel implements KeyFire<String> {
     private List<JLabel> labels = new ArrayList<JLabel>();
     private List<KeyFire> keyFires = new ArrayList<>();
     private int index;
 
     public TextBoard() {
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 8));
-
-        CompoundBorder border = new CompoundBorder(this.getBorder(),
-                new EmptyBorder(0, 30, 0, 30));
-        this.setBorder(border);
     }
 
     public void loadText(String text) {

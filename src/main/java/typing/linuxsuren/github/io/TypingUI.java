@@ -19,11 +19,13 @@ package typing.linuxsuren.github.io;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.List;
 
 public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
     private TextBoard textBoard = new TextBoard();
     private TypingStatUI typingStatUI = new TypingStatUI();
     private DroppingGameUI gameUI = new DroppingGameUI();
+    private GuessingGameUI guessingGameUI = new GuessingGameUI();
     private CardLayout centerCard = new CardLayout();
     private JPanel centerPanel = createCenterPanel();
     private JPanel leftPanel = createLeftPanel();
@@ -33,6 +35,7 @@ public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
         Keyboard keyboard = new Keyboard();
         keyboard.addKeyListener(textBoard);
         keyboard.addKeyListener(gameUI);
+        keyboard.addKeyListener(guessingGameUI);
 
         Toolkit.getDefaultToolkit().addAWTEventListener(keyboard, AWTEvent.KEY_EVENT_MASK);
 
@@ -73,12 +76,14 @@ public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
         panel.setLayout(centerCard);
         panel.add(gameUI, "game");
         panel.add(textBoard, "normal");
+        panel.add(guessingGameUI, "guess");
         centerCard.show(panel, "normal");
         return panel;
     }
 
     private JPanel createLeftPanel() {
         JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         JButton normalBut = new JButton("Normal");
         normalBut.addActionListener(new AbstractAction() {
@@ -95,9 +100,20 @@ public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
                 gameUI.load(practiceText);
             }
         });
+        JButton guessBut = new JButton("Guess");
+        guessBut.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                centerCard.show(centerPanel, "guess");
+
+                List<Vocabulary> vocabularyList = VocabularyCache.getInstance().getVocabularyList();
+                guessingGameUI.loadVocabularyList(vocabularyList);
+            }
+        });
 
         panel.add(normalBut);
         panel.add(gameBut);
+        panel.add(guessBut);
         return panel;
     }
 
