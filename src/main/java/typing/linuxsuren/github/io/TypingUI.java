@@ -19,7 +19,6 @@ package typing.linuxsuren.github.io;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 import java.util.List;
 
 public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
@@ -107,12 +106,7 @@ public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
             public void actionPerformed(ActionEvent e) {
                 centerCard.show(centerPanel, "guess");
 
-                Vocabulary vocabulary = new Vocabulary();
-                vocabulary.setWord("school");
-                vocabulary.setMeaning("a place where children are educated");
-                vocabulary.setExample("example");
-                List<Vocabulary> vocabularyList = new ArrayList();
-                vocabularyList.add(vocabulary);
+                List<Vocabulary> vocabularyList = VocabularyCache.getInstance().getVocabularyList();
                 guessingGameUI.loadVocabularyList(vocabularyList);
             }
         });

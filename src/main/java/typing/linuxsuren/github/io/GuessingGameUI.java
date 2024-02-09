@@ -45,13 +45,16 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
             return;
         }
 
-        Vocabulary vocabulary = vocabularyList.get(0);
-        loadVocabulary(vocabulary);
-        revalidate();
-        repaint();
+        loadNextVocabulary();
     }
 
-    public void loadVocabulary(Vocabulary vocabulary) {
+    private void loadNextVocabulary() {
+        if (vocabularyList.size() == 0) {
+            return;
+        }
+
+        Vocabulary vocabulary = vocabularyList.get(0);
+        vocabularyList.remove(0);
         targets.clear();
         meaningPanel.removeAll();
         for (String c : vocabulary.getMeaning().split("")) {
@@ -76,9 +79,14 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         }
 
         examplePanel.removeAll();
-        for (String c : vocabulary.getExample().split("")) {
-            examplePanel.add(new JLabel(c));
+        if (vocabulary.getExample() != null) {
+            for (String c : vocabulary.getExample().split("")) {
+                examplePanel.add(new JLabel(c));
+            }
         }
+        examplePanel.setVisible(false);
+        revalidate();
+        repaint();
     }
 
     private void hideRestPart(JComponent com, int count) {
@@ -93,7 +101,16 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
 
     @Override
     public void fire(String key, String data) {
+        if (!this.isVisible()) {
+            return;
+        }
+
         if (targets.size() == 0) {
+            if (examplePanel.isVisible()) {
+                loadNextVocabulary();
+            } else {
+                examplePanel.setVisible(true);
+            }
             return;
         }
 

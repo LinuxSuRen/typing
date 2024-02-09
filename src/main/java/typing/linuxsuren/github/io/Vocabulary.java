@@ -20,6 +20,7 @@ public class Vocabulary {
     private String word;
     private String meaning;
     private String example;
+    private String[] scope;
 
     public String getWord() {
         return word;
@@ -43,5 +44,13 @@ public class Vocabulary {
 
     public void setExample(String example) {
         this.example = example;
+    }
+
+    public String[] getScope() {
+        return scope;
+    }
+
+    public void setScope(String[] scope) {
+        this.scope = scope;
     }
 }
