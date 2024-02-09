@@ -93,11 +93,25 @@ public class CategoryUI extends JPanel {
     public void loadSync() {
         reset();
         add(new JLabel("loading..."));
+        JPanel self = this;
 
         new Thread(() -> {
+            String dataSource = null;
             try {
-                Thread.sleep(3000);
-                URL url = new URL("https://gitee.com/linuxsuren/test/raw/master/typing.yaml");
+                Users users = UserService.getInstance().read();
+                if (users != null) {
+                    dataSource = users.getDataSource();
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(self, e.getMessage());
+            }
+
+            if (dataSource == null || dataSource.isEmpty()) {
+                dataSource = "https://gitee.com/linuxsuren/test/raw/master/typing.yaml";
+            }
+
+            try {
+                URL url = new URL(dataSource);
 
                 InputStream input = url.openStream();
 
@@ -106,8 +120,6 @@ public class CategoryUI extends JPanel {
                 }));
             } catch (IOException e) {
                 add(new JLabel(e.getMessage()));
-                throw new RuntimeException(e);
-            } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             } finally {
                 this.revalidate();

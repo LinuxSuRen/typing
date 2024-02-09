@@ -5,6 +5,7 @@
 * Time control
 * Parent account care
 * Small game
+* Customize vocabulary for typing learning
 
 ## Screenshot
 

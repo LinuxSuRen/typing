@@ -19,8 +19,16 @@ package typing.linuxsuren.github.io;
 import java.util.List;
 
 public class Users {
-    public Users() {}
+    private String dataSource;
     private List<User> items;
+
+    public String getDataSource() {
+        return dataSource;
+    }
+
+    public void setDataSource(String dataSource) {
+        this.dataSource = dataSource;
+    }
 
     public List<User> getItems() {
         return items;

@@ -21,8 +21,10 @@ import java.util.List;
 public class User {
     private String name;
     private String password;
-    private List<String> completed;
     private boolean isParent;
+    private List<String> learnedWords;
+    private int score;
+    private long learnedTime; // in minutes
     public User() {}
 
     public User(String name, String password) {
@@ -46,19 +48,35 @@ public class User {
         this.password = password;
     }
 
-    public List<String> getCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(List<String> completed) {
-        this.completed = completed;
-    }
-
     public boolean isParent() {
         return isParent;
     }
 
     public void setParent(boolean parent) {
         isParent = parent;
+    }
+
+    public List<String> getLearnedWords() {
+        return learnedWords;
+    }
+
+    public void setLearnedWords(List<String> learnedWords) {
+        this.learnedWords = learnedWords;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public long getLearnedTime() {
+        return learnedTime;
+    }
+
+    public void setLearnedTime(long learnedTime) {
+        this.learnedTime = learnedTime;
     }
 }

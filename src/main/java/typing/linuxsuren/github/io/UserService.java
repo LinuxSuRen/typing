@@ -106,7 +106,7 @@ public class UserService {
         this.currentUser = null;
     }
 
-    private Users read() {
+    public Users read() {
         InputStream input = null;
         try {
             String configFile = getConfigFile();
