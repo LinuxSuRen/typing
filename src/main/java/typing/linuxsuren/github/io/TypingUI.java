@@ -55,7 +55,6 @@ public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
             private boolean started = false;
             @Override
             public void fire(String key, Boolean data) {
-                System.out.println(key + "-"+ data);
                 switch (key) {
                     case "end":
                         typingStatUI.end();

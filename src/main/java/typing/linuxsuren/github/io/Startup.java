@@ -39,6 +39,7 @@ public class Startup {
         cardLayout.show(centerPanel,"user");
         categoryUI.addListener((key, data) -> {
             cardLayout.show(centerPanel,"typing");
+            typingUI.grabFocus();
         });
 
         ToolPanel toolPanel = new ToolPanel();
