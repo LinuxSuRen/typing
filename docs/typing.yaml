@@ -119,7 +119,7 @@ dictionary:
     meaning: to show that something has happened, or that something had happened before the moment you are referring to
     example: The group has already shed 10,000 jobs.
   - word: also
-    meaning: give more information about a person or thing, or to add another relevant fact
+    meaning: in addition; too
   - word: always
     meaning: you do it whenever a particular situation occurs
     example: She's always late for everything.
@@ -132,7 +132,7 @@ dictionary:
     meaning: you feel strong dislike or impatience about something
     example: Are you angry with me for some reason?
   - word: animal
-    meaning: a living creature such as a dog, lion, or rabbit, rather than a bird, fish, insect, or human being
+    meaning: g creature such as a dog, lion, or rabbit, rather than a bird, fish, insect, or human being
     example: He was attacked by wild animals.
     scope:
       - pep-4
@@ -174,5 +174,251 @@ dictionary:
     meaning: the season between summer and winter when the weather becomes cooler and the leaves fall off the trees
   - word: away
     meaning: they move or are moved so that they are no longer there
+  - word: baby
+    meaning: a very young child
+    example: his wife's just had a baby
+  - word: back
+    meaning: the rear surface of the human body from the shoulders to the hips
+    example: he lay on his back
+  - word: bad
+    meaning: of poor quality or a low standard
+    example: a bad diet
+  - word: bag
+    meaning: a flexible container with an opening at the top, used for carrying things
+    example: he arrived at the children's ward carrying a bag full of toys for the young patients
+  - word: ball
+    meaning: a solid or hollow spherical or egg-shaped object that is kicked, thrown, or hit in a game
+    example: a cricket ball
+  - word: banana
+    meaning: a long curved fruit which grows in clusters and has soft pulpy flesh and yellow skin when ripe
+    example: a bunch of bananas
+  - word: band
+    meaning: a flat, thin strip or loop of material, used as a fastener, for reinforcement, or as decoration
+    example: wads of banknotes fastened with gummed paper bands
+  - word: bank
+    meaning: a long, high mass or mound of a particular substance
+    example: a grassy bank
+  - word: barbecue
+    meaning: a meal or gathering at which meat, fish, or other food is cooked out of doors on a rack over an open fire or on a special appliance
+    example: in the evening there was a barbecue
+  - word: baseball
+    meaning: a ball game played between two teams of nine on a diamond-shaped circuit of four bases. It is played chiefly as a warm-weather sport in the US and Canada
+    example: a game of baseball
+  - word: basketball
+    meaning: a game played between two teams of five players in which goals are scored by throwing a ball through a netted hoop fixed at each end of the court
+    example: I played basketball at college
+  - word: bath
+    meaning: a large container for water, used for immersing and washing the body
+    example: the bedrooms have their own bath and shower
+  - word: bathroom
+    meaning:
+    example:
+  - word: beach
+    meaning:
+    example:
+  - word: bear
+    meaning:
+    example:
+  - word: beautiful
+    meaning:
+    example:
+  - word: because
+    meaning:
+    example:
+  - word: become
+    meaning:
+    example:
+  - word: bed
+    meaning:
+    example:
+  - word: bedroom
+    meaning:
+    example:
+  - word: before
+    meaning:
+    example:
+  - word: begin
+    meaning:
+    example:
+  - word: beginner
+    meaning:
+    example:
+  - word: behind
+    meaning:
+    example:
+  - word: believe
+    meaning:
+    example:
+  - word: belong
+    meaning:
+    example:
+  - word: below
+    meaning:
+    example:
+  - word: belt
+    meaning:
+    example:
+  - word: between
+    meaning:
+    example:
+  - word: bicycle
+    meaning:
+    example:
+  - word: big
+    meaning:
+    example:
+  - word: bike
+    meaning:
+    example:
+  - word: bill
+    meaning:
+    example:
+  - word: bird
+    meaning:
+    example:
+  - word: birthday
+    meaning:
+    example:
+  - word: biscuit
+    meaning:
+    example:
+  - word: bit
+    meaning:
+    example:
+  - word: black
+    meaning:
+    example:
+  - word: blanket
+    meaning:
+    example:
+  - word: blond
+    meaning:
+    example:
+  - word: blouse
+    meaning:
+    example:
+  - word: blue
+    meaning:
+    example:
+  - word: board
+    meaning:
+    example:
+  - word: boat
+    meaning:
+    example:
+  - word: body
+    meaning:
+    example:
+  - word: boil
+    meaning:
+    example:
+  - word: book
+    meaning:
+    example:
+  - word: bookshelf
+    meaning:
+    example:
+  - word: bookshop
+    meaning:
+    example:
+  - word: boot
+    meaning:
+    example:
+  - word: bored
+    meaning:
+    example:
+  - word: boring
+    meaning:
+    example:
+  - word: born
+    meaning:
+    example:
+  - word: borrow
+    meaning:
+    example:
+  - word: boss
+    meaning:
+    example:
+  - word: bot
+    meaning:
+    example:
+  - word: bottle
+    meaning:
+    example:
+  - word: bottom
+    meaning:
+    example:
+  - word: bowl
+    meaning:
+    example:
+  - word: box
+    meaning:
+    example:
+  - word: boy
+    meaning:
+    example:
+  - word: brake
+    meaning:
+    example:
+  - word: bread
+    meaning:
+    example:
+  - word: break
+    meaning:
+    example:
+  - word: breakfast
+    meaning:
+    example:
+  - word: bridge
+    meaning:
+    example:
+  - word: brilliant
+    meaning:
+    example:
+  - word: bring
+    meaning:
+    example:
+  - word: brother
+    meaning:
+    example:
+  - word: brown
+    meaning:
+    example:
+  - word: build
+    meaning:
+    example:
+  - word: building
+    meaning:
+    example:
+  - word: burger
+    meaning:
+    example:
+  - word: burn
+    meaning:
+    example:
+  - word: bus
+    meaning:
+    example:
+  - word: business
+    meaning:
+    example:
+  - word: businessman
+    meaning:
+    example:
+  - word: businesswoman
+    meaning:
+    example:
+  - word: busy
+    meaning:
+    example:
+  - word: but
+    meaning:
+    example:
+  - word: butter
+    meaning:
+    example:
+  - word: buy
+    meaning:
+    example:
   - word: school
     meaning: a place where children are educated
