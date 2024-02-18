@@ -28,6 +28,10 @@ items:
     text: zxcc bnzxc mnbnm zcbm nvxx
     level: 0
     description: Very basic level
+  - name: program
+    text: if else when while switch for foreach exit break public private return void class protected implement interface package import
+  - name: java-swing
+    text: javax swing event awt action list tookkit boxLayout borderLayout cardLayout jpanel jbutton jlabel jframe listener size visible center north south east west color font
   - name: grade-1
     text: hello hi goodbye bye thank you welcome school bag book pencil pen ruler eraser crayon sharpener desk chair blackboard computer mouse keyboard monitor printer scanner speaker headphone microphone game toy ball bat doll cat dog elephant fish giraffe horse lion monkey panda rabbit sheep tiger zoo apple banana cherry grape orange pear peach pineapple strawberry watermelon hot dog hamburger pizza cake donut ice cream chocolate candy
   - name: grade-2
@@ -130,6 +134,8 @@ dictionary:
   - word: animal
     meaning: a living creature such as a dog, lion, or rabbit, rather than a bird, fish, insect, or human being
     example: He was attacked by wild animals.
+    scope:
+      - pep-4
   - word: another
     meaning: an additional thing or person of the same type as one that already exists
     example: We're going to have another baby.
@@ -152,6 +158,8 @@ dictionary:
     meaning: they come to it at the end of a journey
   - word: art
     meaning: consists of paintings, sculpture, and other pictures or objects which are created for people to look at and admire or think deeply about
+    scope:
+      - pep-4
   - word: article
     meaning: a piece of writing that is published in a newspaper or magazine
   - word: artist
