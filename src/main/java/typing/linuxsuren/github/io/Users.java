@@ -21,6 +21,7 @@ import java.util.List;
 public class Users {
     private String dataSource;
     private List<User> items;
+    private int font = 30;
 
     public String getDataSource() {
         return dataSource;
@@ -36,5 +37,13 @@ public class Users {
 
     public void setItems(List<User> items) {
         this.items = items;
+    }
+
+    public int getFont() {
+        return font;
+    }
+
+    public void setFont(int font) {
+        this.font = font;
     }
 }
