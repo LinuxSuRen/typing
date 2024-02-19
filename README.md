@@ -6,6 +6,7 @@
 * Parent account care
 * Small game
 * Customize vocabulary for typing learning
+* Query vocabulary meaning online
 
 ## Screenshot
 

@@ -16,6 +16,9 @@ limitations under the License.
 
 package typing.linuxsuren.github.io;
 
+import typing.linuxsuren.github.io.dictionary.Vocabulary;
+import typing.linuxsuren.github.io.dictionary.VocabularyCache;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
