@@ -22,6 +22,7 @@ public class Users {
     private String dataSource;
     private List<User> items;
     private int font = 30;
+    private int systemFont = 25;
 
     public String getDataSource() {
         return dataSource;
@@ -45,5 +46,13 @@ public class Users {
 
     public void setFont(int font) {
         this.font = font;
+    }
+
+    public int getSystemFont() {
+        return systemFont;
+    }
+
+    public void setSystemFont(int systemFont) {
+        this.systemFont = systemFont;
     }
 }

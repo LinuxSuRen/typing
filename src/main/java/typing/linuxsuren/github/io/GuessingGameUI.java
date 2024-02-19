@@ -16,11 +16,16 @@ limitations under the License.
 
 package typing.linuxsuren.github.io;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 import typing.linuxsuren.github.io.dictionary.FreeDictionaryAPI;
 import typing.linuxsuren.github.io.dictionary.Vocabulary;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -109,6 +114,7 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         hideRestPart(meaningPanel, 10);
 
         vocabularyPanel.removeAll();
+        vocabularyPanel.setName(vocabulary.getWord());
         for (int i = 0; i < vocabulary.getWord().split("").length; i++) {
             String c = vocabulary.getWord().split("")[i];
             JLabel label = newLabel(c);
@@ -157,9 +163,13 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
             if (examplePanel.isVisible()) {
                 UserService.getInstance().markAsLearned(vocabularyList.get(nextVocabularyIndex).getWord());
                 vocabularyList.remove(nextVocabularyIndex);
+
                 loadNextVocabulary();
             } else {
                 examplePanel.setVisible(true);
+
+                // play the audio
+                playWord(vocabularyPanel.getName());
             }
             return;
         }
@@ -201,5 +211,23 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         statusPanel.removeAll();
         statusPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         statusPanel.add(new JLabel("Remain: " + total));
+    }
+
+    private void playWord(String word) {
+        // play the audio
+        new Thread(() -> {
+            try {
+                URL api = new URL("https://cdn.yourdictionary.com/audio/en/" + word + ".mp3");
+
+                Player playMP3 = new Player(api.openStream());
+                playMP3.play();
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (JavaLayerException e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
     }
 }
