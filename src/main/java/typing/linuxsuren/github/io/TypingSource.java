@@ -19,11 +19,13 @@ package typing.linuxsuren.github.io;
 import typing.linuxsuren.github.io.dictionary.Vocabulary;
 
 import java.util.List;
+import java.util.Map;
 
 public class TypingSource {
     private String author;
     private List<TypingCategory> items;
     private List<Vocabulary> dictionary;
+    private Map<String, String> scope;
 
     public String getAuthor() {
         return author;
@@ -47,5 +49,13 @@ public class TypingSource {
 
     public void setDictionary(List<Vocabulary> dictionary) {
         this.dictionary = dictionary;
+    }
+
+    public Map<String, String> getScope() {
+        return scope;
+    }
+
+    public void setScope(Map<String, String> scope) {
+        this.scope = scope;
     }
 }

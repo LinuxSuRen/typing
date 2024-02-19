@@ -16,10 +16,12 @@ limitations under the License.
 
 package typing.linuxsuren.github.io;
 
+import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 import typing.linuxsuren.github.io.dictionary.VocabularyCache;
+import org.yaml.snakeyaml.representer.Representer;
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
@@ -50,7 +52,10 @@ public class CategoryUI extends JPanel {
         reset();
 
         // load the new data
-        Yaml yaml = new Yaml(new Constructor(TypingSource.class, new LoaderOptions()));
+        Representer representer = new Representer(new DumperOptions());
+        representer.getPropertyUtils().setSkipMissingProperties(true);
+        LoaderOptions loaderOptions = new LoaderOptions();
+        Yaml yaml = new Yaml(new Constructor(TypingSource.class, loaderOptions), representer);
         source = yaml.load(input);
         VocabularyCache.getInstance().setVocabularyList(source.getDictionary());
 
