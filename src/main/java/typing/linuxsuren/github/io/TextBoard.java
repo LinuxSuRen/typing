@@ -32,6 +32,8 @@ public class TextBoard extends JPanel implements KeyFire<String> {
     }
 
     public void loadText(String text) {
+        Users users = UserService.getInstance().read();
+
         index = 0;
         this.removeAll();
         labels.clear();
@@ -42,7 +44,7 @@ public class TextBoard extends JPanel implements KeyFire<String> {
                         new EmptyBorder(0, 10, 0, 10));
                 label.setBorder(border);
             }
-            label.setFont(new Font("",Font.PLAIN, 20));
+            label.setFont(new Font("",Font.PLAIN, users.getFont()));
             label.setOpaque(true);
 
             this.add(label);
