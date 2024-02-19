@@ -27,6 +27,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -103,7 +104,12 @@ public class CategoryUI extends JPanel {
                     dataSource = users.getDataSource();
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(self, e.getMessage());
+                Throwable cause = e.getCause();
+                if (cause != null && cause.getClass().equals(FileNotFoundException.class)) {
+                    JOptionPane.showMessageDialog(self, "This might be your first time to use, please create user first.");
+                } else {
+                    JOptionPane.showMessageDialog(self, e.getMessage());
+                }
             }
 
             if (dataSource == null || dataSource.isEmpty()) {
