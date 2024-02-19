@@ -17,13 +17,15 @@ limitations under the License.
 package typing.linuxsuren.github.io;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.AWTEventListener;
 import java.awt.event.KeyEvent;
+import java.net.URL;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Keyboard extends JComponent implements AWTEventListener {
+public class Keyboard extends JPanel implements AWTEventListener {
     private List<JButton> row1 = new ArrayList<JButton>();
     private List<KeyFire> keyFires = new ArrayList<>();
     private String[] keys = new String[]{
@@ -41,9 +43,20 @@ public class Keyboard extends JComponent implements AWTEventListener {
 
             JPanel panel = new JPanel();
             panel.setLayout(new GridLayout(1,items.length));
+            panel.setBorder(new EmptyBorder(0, 0, 0, 0));
 
             for (String item : items) {
-                JButton but = new JButton(item);
+                JButton but = new JButton();
+                URL iconURL = this.getClass().getClassLoader().getResource("images/key-" + item + ".jpg");
+                if (iconURL != null) {
+                    ImageIcon icon = new ImageIcon(iconURL);
+                    but.setIcon(icon);
+                } else {
+                    but.setText(item);
+                }
+                // TODO remove border after each key has its image
+                // but.setBorder(new EmptyBorder(0, 0, 0, 0));
+                but.setName(item);
                 panel.add(but);
                 row1.add(but);
             }
@@ -58,7 +71,7 @@ public class Keyboard extends JComponent implements AWTEventListener {
 
             if (ke.getID() == KeyEvent.KEY_RELEASED) {
                 for (JButton but : row1) {
-                    if (but.getText().equals(ke.getKeyChar() + "")) {
+                    if (but.getName().equals(ke.getKeyChar() + "")) {
                         but.doClick();
 
                         for (KeyFire fire : keyFires) {
