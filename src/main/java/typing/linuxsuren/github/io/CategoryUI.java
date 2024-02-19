@@ -19,6 +19,7 @@ package typing.linuxsuren.github.io;
 import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
+import typing.linuxsuren.github.io.dictionary.VocabularyCache;
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;

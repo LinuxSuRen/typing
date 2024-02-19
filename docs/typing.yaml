@@ -31,7 +31,7 @@ items:
   - name: program
     text: if else when while switch for foreach exit break public private return void class protected implement interface package import
   - name: java-swing
-    text: javax swing event awt action list tookkit boxLayout borderLayout cardLayout jpanel jbutton jlabel jframe listener size visible center north south east west color font
+    text: javax swing event awt action list toolkit boxLayout borderLayout cardLayout jpanel jbutton jlabel jframe listener size visible center north south east west color font
   - name: grade-1
     text: hello hi goodbye bye thank you welcome school bag book pencil pen ruler eraser crayon sharpener desk chair blackboard computer mouse keyboard monitor printer scanner speaker headphone microphone game toy ball bat doll cat dog elephant fish giraffe horse lion monkey panda rabbit sheep tiger zoo apple banana cherry grape orange pear peach pineapple strawberry watermelon hot dog hamburger pizza cake donut ice cream chocolate candy
   - name: grade-2

@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package typing.linuxsuren.github.io;
+package typing.linuxsuren.github.io.dictionary;
 
 public class Vocabulary {
     private String word;

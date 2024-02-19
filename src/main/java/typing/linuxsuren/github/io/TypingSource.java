@@ -16,6 +16,8 @@ limitations under the License.
 
 package typing.linuxsuren.github.io;
 
+import typing.linuxsuren.github.io.dictionary.Vocabulary;
+
 import java.util.List;
 
 public class TypingSource {

@@ -16,6 +16,9 @@ limitations under the License.
 
 package typing.linuxsuren.github.io;
 
+import typing.linuxsuren.github.io.dictionary.FreeDictionaryAPI;
+import typing.linuxsuren.github.io.dictionary.Vocabulary;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -62,6 +65,17 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
             }
         }
 
+        new Thread(() -> {
+            for (Vocabulary vol : vocabularyList) {
+                if (vol.getMeaning() == null || vol.getMeaning().isEmpty()) {
+                    Vocabulary volTmpl = new FreeDictionaryAPI().query(vol.getWord());
+                    if (volTmpl != null) {
+                        vol.setMeaning(volTmpl.getMeaning());
+                    }
+                }
+            }
+        }).start();
+
         loadNextVocabulary();
     }
 
@@ -76,6 +90,13 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
 
         updateStatusPanel();
         Vocabulary vocabulary = vocabularyList.get(nextVocabularyIndex);
+        if (vocabulary.getMeaning() == null || vocabulary.getMeaning().isEmpty()) {
+//            vocabularyList.remove(nextVocabularyIndex);
+            System.out.println(vocabulary.getWord());
+            loadNextVocabulary();
+            return;
+        }
+
         targets.clear();
         meaningPanel.removeAll();
         for (String c : vocabulary.getMeaning().split("")) {
