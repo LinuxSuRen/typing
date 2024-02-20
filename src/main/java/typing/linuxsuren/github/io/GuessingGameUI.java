@@ -66,8 +66,9 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         statusPanel.add(statusLabel);
 
         scopeList.addItem("All");
-        scopeList.addItem("ielts");
         scopeList.addItem("ket");
+        scopeList.addItem("ielts");
+        scopeList.addItem("toefl");
         scopeList.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
