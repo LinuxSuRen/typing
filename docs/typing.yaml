@@ -1361,9 +1361,11 @@ dictionary:
     scope:
       - ielts
   - word: habit
+    meaning: a settled or regular tendency or practice, especially one that is hard to give up
     scope:
       - pet
   - word: hair
+    meaning: any of the fine threadlike strands growing from the skin of humans, mammals, and some other animals
     scope:
       - pet
   - word: haircut
@@ -1376,6 +1378,7 @@ dictionary:
     scope:
       - pet
   - word: half
+    meaning: either of two equal or corresponding parts into which something is or can be divided
     scope:
       - pet
   - word: hall
