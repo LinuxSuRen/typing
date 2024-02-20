@@ -51,6 +51,9 @@ dictionary:
     meaning: to introduce who or what something relates to or concerns
     scope:
       - ket
+  - word: abundant
+    scope:
+      - toefl
   - word: above
     meaning: it is directly over it or higher than it
     scope:
@@ -64,6 +67,12 @@ dictionary:
     example: She was involved in a serious car accident last week.
     scope:
       - ket
+  - word: accumulate
+    scope:
+      - toefl
+  - word: accurate
+    scope:
+      - toefl
   - word: across
     meaning: go from one side of it to the other
     scope:
@@ -1009,6 +1018,9 @@ dictionary:
   - word: carpet
     scope:
       - ket
+  - word: adamant
+    scope:
+      - toefl
   - word: dirty
     scope:
       - ielts
@@ -1117,6 +1129,507 @@ dictionary:
   - word: delicate
     scope:
       - ielts
+  - word: elevate
+    scope:
+      - ielts
+  - word: enquire
+    scope:
+      - ielts
+  - word: evil
+    scope:
+      - ielts
+  - word: exit
+    scope:
+      - ielts
+  - word: ethical
+    scope:
+      - ielts
+  - word: enormous
+    scope:
+      - ielts
+  - word: envisage
+    scope:
+      - ielts
+  - word: entrepreneur
+    scope:
+      - ielts
+  - word: encourage
+    scope:
+      - ielts
+  - word: eager
+    scope:
+      - ielts
+  - word: exaggerate
+    scope:
+      - ielts
+  - word: exemplary
+    scope:
+      - ielts
+  - word: elite
+    scope:
+      - ielts
+  - word: emphatically
+    scope:
+      - ielts
+  - word: epitome
+    scope:
+      - ielts
+  - word: enjoy
+    scope:
+      - ielts
+  - word: easy
+    scope:
+      - ielts
+  - word: envy
+    scope:
+      - ielts
+  - word: escalate
+    scope:
+      - ielts
+  - word: evaluate
+    scope:
+      - ielts
+  - word: enlarge
+    scope:
+      - ielts
+  - word: extra
+    scope:
+      - ielts
+  - word: elitist
+    scope:
+      - ielts
+  - word: exempt
+    scope:
+      - ielts
+  - word: except
+    scope:
+      - ielts
+  - word: exactly
+    scope:
+      - ielts
+  - word: eternal
+    scope:
+      - ielts
+  - word: fetch
+    scope:
+      - ielts
+  - word: frivolous
+    scope:
+      - ielts
+  - word: facelift
+    scope:
+      - ielts
+  - word: flinches
+    scope:
+      - ielts
+  - word: forbid
+    scope:
+      - ielts
+  - word: frigid
+    scope:
+      - ielts
+  - word: fat
+    scope:
+      - ielts
+  - word: fragile
+    scope:
+      - ielts
+  - word: finish
+    scope:
+      - ielts
+  - word: fill
+    scope:
+      - ielts
+  - word: fatal
+    scope:
+      - ielts
+  - word: fraction
+    scope:
+      - ielts
+  - word: function
+    scope:
+      - ielts
+  - word: funny
+    scope:
+      - ielts
+  - word: flippant
+    scope:
+      - ielts
+  - word: fiction
+    scope:
+      - ielts
+  - word: fire
+    scope:
+      - ielts
+  - word: ferry
+    scope:
+      - ielts
+  - word: fate
+    scope:
+      - ielts
+  - word: flaw
+    scope:
+      - ielts
+  - word: fast
+    scope:
+      - ielts
+  - word: fun
+    scope:
+      - ielts
+  - word: freak
+    scope:
+      - ielts
+  - word: "false"
+    scope:
+      - ielts
+  - word: fatigue
+    scope:
+      - ielts
+  - word: fortunate
+    scope:
+      - ielts
+  - word: fair
+    scope:
+      - ielts
+  - word: fantastic
+    scope:
+      - ielts
+  - word: future
+    scope:
+      - ielts
+  - word: famous
+    scope:
+      - ielts
+  - word: fluke
+    scope:
+      - ielts
+  - word: glossy
+    scope:
+      - ielts
+  - word: good
+    scope:
+      - ielts
+  - word: garbage
+    scope:
+      - ielts
+  - word: gain
+    scope:
+      - ielts
+  - word: great
+    scope:
+      - ielts
+  - word: gaunt
+    scope:
+      - ielts
+  - word: guilt
+    scope:
+      - ielts
+  - word: glare
+    scope:
+      - ielts
+  - word: gloomy
+    scope:
+      - ielts
+  - word: grab
+    scope:
+      - ielts
+  - word: gesture
+    scope:
+      - ielts
+  - word: glitter
+    scope:
+      - ielts
+  - word: grim
+    scope:
+      - ielts
+  - word: glimpse
+    scope:
+      - ielts
+  - word: glad
+    scope:
+      - ielts
+  - word: generous
+    scope:
+      - ielts
+  - word: grumble
+    scope:
+      - ielts
+  - word: get
+    scope:
+      - ielts
+  - word: gaudy
+    scope:
+      - ielts
+  - word: habit
+    scope:
+      - pet
+  - word: hair
+    scope:
+      - pet
+  - word: haircut
+    scope:
+      - pet
+  - word: hairdresser
+    scope:
+      - pet
+  - word: hairdryer
+    scope:
+      - pet
+  - word: half
+    scope:
+      - pet
+  - word: hall
+    scope:
+      - pet
+  - word: hand
+    scope:
+      - pet
+  - word: handbag
+    scope:
+      - pet
+  - word: handkerchief
+    scope:
+      - pet
+  - word: handle
+    scope:
+      - pet
+  - word: handsome
+    scope:
+      - pet
+  - word: handwriting
+    scope:
+      - pet
+  - word: hang
+    scope:
+      - pet
+  - word: happen
+    scope:
+      - pet
+  - word: happy
+    scope:
+      - pet
+  - word: harbour
+    scope:
+      - pet
+  - word: hard
+    scope:
+      - pet
+  - word: hardware
+    scope:
+      - pet
+  - word: hat
+    scope:
+      - pet
+  - word: hate
+    scope:
+      - pet
+  - word: have
+    scope:
+      - pet
+  - word: head
+    scope:
+      - pet
+  - word: headache
+    scope:
+      - pet
+  - word: headline
+    scope:
+      - pet
+  - word: headphone
+    scope:
+      - pet
+  - word: headteacher
+    scope:
+      - pet
+  - word: health
+    scope:
+      - pet
+  - word: hear
+    scope:
+      - pet
+  - word: heart
+    scope:
+      - pet
+  - word: heat
+    scope:
+      - pet
+  - word: heater
+    scope:
+      - pet
+  - word: heavy
+    scope:
+      - pet
+  - word: heel
+    scope:
+      - pet
+  - word: height
+    scope:
+      - pet
+  - word: helicopter
+    scope:
+      - pet
+  - word: hello
+    scope:
+      - pet
+  - word: helmet
+    scope:
+      - pet
+  - word: help
+    scope:
+      - pet
+  - word: herb
+    scope:
+      - pet
+  - word: here
+    scope:
+      - pet
+  - word: hero
+    scope:
+      - pet
+  - word: heroine
+    scope:
+      - pet
+  - word: herself
+    scope:
+      - pet
+  - word: hey
+    scope:
+      - pet
+  - word: hidden
+    scope:
+      - pet
+  - word: hide
+    scope:
+      - pet
+  - word: high
+    scope:
+      - pet
+  - word: hike
+    scope:
+      - pet
+  - word: hill
+    scope:
+      - pet
+  - word: hire
+    scope:
+      - pet
+  - word: his
+    scope:
+      - pet
+  - word: historic
+    scope:
+      - pet
+  - word: hit
+    scope:
+      - pet
+  - word: hitchhike
+    scope:
+      - pet
+  - word: hobby
+    scope:
+      - pet
+  - word: hockey
+    scope:
+      - pet
+  - word: hold
+    scope:
+      - pet
+  - word: hole
+    scope:
+      - pet
+  - word: holiday
+    scope:
+      - pet
+  - word: home
+    scope:
+      - pet
+  - word: homework
+    scope:
+      - pet
+  - word: honest
+    scope:
+      - pet
+  - word: honey
+    scope:
+      - pet
+  - word: honeymoon
+    scope:
+      - pet
+  - word: hope
+    scope:
+      - pet
+  - word: hopeful
+    scope:
+      - pet
+  - word: hopeless
+    scope:
+      - pet
+  - word: horrible
+    scope:
+      - pet
+  - word: horror
+    scope:
+      - pet
+  - word: horse
+    scope:
+      - pet
+  - word: hospital
+    scope:
+      - pet
+  - word: hostel
+    scope:
+      - pet
+  - word: hour
+    scope:
+      - pet
+  - word: house
+    scope:
+      - pet
+  - word: housewife
+    scope:
+      - pet
+  - word: housework
+    scope:
+      - pet
+  - word: how
+    scope:
+      - pet
+  - word: however
+    scope:
+      - pet
+  - word: hug
+    scope:
+      - pet
+  - word: huge
+    scope:
+      - pet
+  - word: human
+    scope:
+      - pet
+  - word: humid
+    scope:
+      - pet
+  - word: hunger
+    scope:
+      - pet
+  - word: hungry
+    scope:
+      - pet
+  - word: hunt
+    scope:
+      - pet
+  - word: hurry
+    scope:
+      - pet
+  - word: hurt
+    scope:
+      - pet
+  - word: husband
+    scope:
+      - pet
+  - word: hut
+    scope:
+      - pet
   - word: school
     meaning: a place where children are educated
     scope:
@@ -1124,6 +1637,27 @@ dictionary:
   - word: student
     scope:
       - ielts
+  - word: vial
+    scope:
+      - toefl
+  - word: vilify
+    scope:
+      - toefl
+  - word: voluminous
+    scope:
+      - toefl
+  - word: whereas
+    scope:
+      - toefl
+  - word: wholly
+    scope:
+      - toefl
+  - word: widespread
+    scope:
+      - toefl
+  - word: wilt
+    scope:
+      - toefl
   - word: zero
     scope:
       - ket
@@ -1134,3 +1668,7 @@ scope:
   # https://engdic.org/ielts-vocabulary-words/
   ielts: International English Language Testing System
   ket: Key English Test
+  # https://www.cambridgeenglish.org/images/506887-b1-preliminary-2020-vocabulary-list.pdf
+  pet: Preliminary English Test
+  # https://www.prepscholar.com/toefl/blog/wp-content/uploads/sites/13/2017/08/TOEFL-Vocab-Word-List.pdf
+  toefl: Test of English as a Foreign Language

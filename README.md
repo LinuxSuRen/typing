@@ -7,7 +7,7 @@
 * Small game
 * Customize vocabulary for typing learning
 * Query vocabulary meaning online
-* Vocabulary from IELTS, KET, PET
+* Vocabulary from KET, PET, IELTS, TOEFL
 
 ## Screenshot
 
