@@ -58,6 +58,7 @@ public class CategoryUI extends JPanel {
         Yaml yaml = new Yaml(new Constructor(TypingSource.class, loaderOptions), representer);
         source = yaml.load(input);
         VocabularyCache.getInstance().setVocabularyList(source.getDictionary());
+        VocabularyCache.getInstance().setScope(source.getScope());
 
         System.out.println("data loaded");
         for (TypingCategory category : source.getItems()) {

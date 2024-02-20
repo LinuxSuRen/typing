@@ -16,25 +16,37 @@ limitations under the License.
 
 package typing.linuxsuren.github.io;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 import typing.linuxsuren.github.io.dictionary.FreeDictionaryAPI;
 import typing.linuxsuren.github.io.dictionary.Vocabulary;
+import typing.linuxsuren.github.io.dictionary.VocabularyCache;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
+import java.util.function.Predicate;
 
 public class GuessingGameUI extends JPanel implements KeyFire<String> {
     private final JPanel vocabularyPanel = new JPanel();
     private final JPanel meaningPanel = new JPanel();
     private final JPanel examplePanel = new JPanel();
     private final JPanel statusPanel = new JPanel();
+    private final JLabel statusLabel = new JLabel();
+    private final JComboBox<String> scopeList = new JComboBox<>();
     private final List<JLabel> targets = new ArrayList<>();
     private List<Vocabulary> vocabularyList;
     private int hiddenIndex;
 
     public GuessingGameUI() {
+        setupStatusPanel();
         JPanel centerPanel = new JPanel();
 
         this.setLayout(new BorderLayout());
@@ -45,6 +57,25 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         centerPanel.add(vocabularyPanel);
         centerPanel.add(meaningPanel);
         centerPanel.add(examplePanel);
+    }
+
+    private void setupStatusPanel() {
+        statusPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        statusPanel.add(new JLabel("Choose scope:"));
+        statusPanel.add(scopeList);
+        statusPanel.add(statusLabel);
+
+        scopeList.addItem("All");
+        scopeList.addItem("ielts");
+        scopeList.addItem("ket");
+        scopeList.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getSource() == scopeList && e.getStateChange() == ItemEvent.SELECTED) {
+                    loadNextVocabulary(scopeList.getSelectedItem().toString());
+                }
+            }
+        });
     }
 
     public void loadVocabularyList(List<Vocabulary> vList) {
@@ -76,24 +107,39 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
             }
         }).start();
 
-        loadNextVocabulary();
+        loadNextVocabulary(scopeList.getSelectedItem().toString());
     }
 
-    private int nextVocabularyIndex;
-    private void loadNextVocabulary() {
+    private Vocabulary nextVocabulary;
+    private void loadNextVocabulary(String scope) {
+        long b = vocabularyList.stream().filter((a) -> {
+            if (a.getScope() == null || a.getScope().length == 0) {
+                return true;
+            }
+
+            for (String s : a.getScope()) {
+                if (s.equals(scope)) {
+                    return true;
+                }
+            }
+            return false;
+        }).count();
+
         if (vocabularyList.isEmpty()) {
             return;
         }
 
-        int total = vocabularyList.size();
-        nextVocabularyIndex = new Random().nextInt(total - 1);
+        Optional<Vocabulary> potentionVol = vocabularyList.stream().filter(new VocabularyFilter(scope)).findAny();
+        if (potentionVol.isPresent()) {
+            nextVocabulary = potentionVol.get();
+        } else {
+            return;
+        }
 
         updateStatusPanel();
-        Vocabulary vocabulary = vocabularyList.get(nextVocabularyIndex);
-        if (vocabulary.getMeaning() == null || vocabulary.getMeaning().isEmpty()) {
+        if (nextVocabulary.getMeaning() == null || nextVocabulary.getMeaning().isEmpty()) {
 //            vocabularyList.remove(nextVocabularyIndex);
-            System.out.println(vocabulary.getWord());
-            loadNextVocabulary();
+            loadNextVocabulary(scope);
             return;
         }
 
@@ -101,7 +147,7 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
 
         targets.clear();
         meaningPanel.removeAll();
-        for (String c : vocabulary.getMeaning().split("")) {
+        for (String c : nextVocabulary.getMeaning().split("")) {
             JLabel label = newLabel(c);
             label.setName(c);
             label.setFont(new Font("",Font.PLAIN, users.getFont()));
@@ -112,8 +158,9 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         hideRestPart(meaningPanel, 10);
 
         vocabularyPanel.removeAll();
-        for (int i = 0; i < vocabulary.getWord().split("").length; i++) {
-            String c = vocabulary.getWord().split("")[i];
+        vocabularyPanel.setName(nextVocabulary.getWord());
+        for (int i = 0; i < nextVocabulary.getWord().split("").length; i++) {
+            String c = nextVocabulary.getWord().split("")[i];
             JLabel label = newLabel(c);
             label.setName(c);
             label.setFont(new Font("",Font.PLAIN, users.getFont()));
@@ -125,8 +172,8 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         }
 
         examplePanel.removeAll();
-        if (vocabulary.getExample() != null) {
-            for (String c : vocabulary.getExample().split("")) {
+        if (nextVocabulary.getExample() != null) {
+            for (String c : nextVocabulary.getExample().split("")) {
                 JLabel label = newLabel(c);
                 label.setFont(new Font("",Font.PLAIN, users.getFont()));
                 examplePanel.add(label);
@@ -161,11 +208,15 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
 
         if (targets.isEmpty()) {
             if (examplePanel.isVisible()) {
-                UserService.getInstance().markAsLearned(vocabularyList.get(nextVocabularyIndex).getWord());
-                vocabularyList.remove(nextVocabularyIndex);
-                loadNextVocabulary();
+                UserService.getInstance().markAsLearned(nextVocabulary.getWord());
+                vocabularyList.remove(nextVocabulary);
+
+                loadNextVocabulary(scopeList.getSelectedItem().toString());
             } else {
                 examplePanel.setVisible(true);
+
+                // play the audio
+                playWord(vocabularyPanel.getName());
             }
             return;
         }
@@ -203,9 +254,45 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
     }
 
     private void updateStatusPanel() {
-        int total = this.vocabularyList.size();
-        statusPanel.removeAll();
-        statusPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-        statusPanel.add(new JLabel("Remain: " + total));
+        long total = this.vocabularyList.stream().filter(new VocabularyFilter(scopeList.getSelectedItem().toString())).count();
+        statusLabel.setText("Remain: " + total);
+    }
+
+    private void playWord(String word) {
+        // play the audio
+        new Thread(() -> {
+            try {
+                URL api = new URL("https://cdn.yourdictionary.com/audio/en/" + word + ".mp3");
+
+                Player playMP3 = new Player(api.openStream());
+                playMP3.play();
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (JavaLayerException e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
+    }
+}
+
+class VocabularyFilter implements Predicate<Vocabulary> {
+    private String scope;
+    VocabularyFilter(String scope) {
+        this.scope = scope;
+    }
+
+    @Override
+    public boolean test(Vocabulary vocabulary) {
+        if (vocabulary.getScope() == null) {
+            return true;
+        }
+        for (String s : vocabulary.getScope()) {
+            if (s.equals(this.scope)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

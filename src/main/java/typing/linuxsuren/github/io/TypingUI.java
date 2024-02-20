@@ -29,13 +29,13 @@ public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
     private TypingStatUI typingStatUI = new TypingStatUI();
     private DroppingGameUI gameUI = new DroppingGameUI();
     private GuessingGameUI guessingGameUI = new GuessingGameUI();
+    private Keyboard keyboard = new Keyboard();
     private CardLayout centerCard = new CardLayout();
     private JPanel centerPanel = createCenterPanel();
     private JPanel leftPanel = createLeftPanel();
     private String practiceText;
 
     public TypingUI() {
-        Keyboard keyboard = new Keyboard();
         keyboard.addKeyListener(textBoard);
         keyboard.addKeyListener(gameUI);
         keyboard.addKeyListener(guessingGameUI);
@@ -92,6 +92,7 @@ public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
             @Override
             public void actionPerformed(ActionEvent e) {
                 centerCard.show(centerPanel, "normal");
+                keyboard.requestFocus();
             }
         });
         JButton gameBut = new JButton("Game");
@@ -100,6 +101,7 @@ public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
             public void actionPerformed(ActionEvent e) {
                 centerCard.show(centerPanel, "game");
                 gameUI.load(practiceText);
+                keyboard.requestFocus();
             }
         });
         JButton guessBut = new JButton("Guess");
@@ -107,6 +109,7 @@ public class TypingUI extends JPanel implements KeyFire<TypingCategory> {
             @Override
             public void actionPerformed(ActionEvent e) {
                 centerCard.show(centerPanel, "guess");
+                keyboard.requestFocus();
 
                 List<Vocabulary> vocabularyList = VocabularyCache.getInstance().getVocabularyList();
                 guessingGameUI.loadVocabularyList(vocabularyList);

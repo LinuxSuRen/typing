@@ -45,95 +45,163 @@ dictionary:
   - word: able
     meaning: be very clever or very good at doing something
     example: I'm able to find it.
+    scope:
+      - ket
   - word: about
     meaning: to introduce who or what something relates to or concerns
     scope:
       - ket
   - word: above
     meaning: it is directly over it or higher than it
+    scope:
+      - ket
   - word: act
     meaning: you do something for a particular purpose
+    scope:
+      - ket
   - word: accident
     meaning: a vehicle hits a person, an object, or another vehicle, causing injury or damage
     example: She was involved in a serious car accident last week.
+    scope:
+      - ket
   - word: across
     meaning: go from one side of it to the other
+    scope:
+      - ket
   - word: activity
     meaning: a situation in which a lot of things are happening or being done
+    scope:
+      - ket
   - word: actor
     meaning: someone whose job is acting in plays or films
+    scope:
+      - ket
   - word: active
     scope:
       - ielts
   - word: actually
     meaning: to indicate that a situation exists or happened, or to emphasize that it is true
+    scope:
+      - ket
   - word: add
     meaning: you put it in or on the other thing, to increase, complete, or improve it
+    scope:
+      - ket
   - word: address
     meaning: the number of the house, flat, or apartment and the name of the street and the town where you live or work
+    scope:
+      - ket
   - word: adult
     meaning: a mature, fully developed person
+    scope:
+      - ket
   - word: advanced
     meaning: modern and has been developed from an earlier version of the same thing
+    scope:
+      - ket
   - word: adventure
     meaning: they become involved in an unusual, exciting, and rather dangerous journey or series of events
+    scope:
+      - ket
   - word:  advertisement
     meaning: an announcement online, or in a newspaper, on television, or on a poster about something such as a product, event, or job
     example: Miss Parrish recently placed an advertisement in the local newspaper.
+    scope:
+      - ket
   - word: aeroplane
     meaning: a vehicle with wings and one or more engines that enable it to fly through the air
+    scope:
+      - ket
   - word: afraid
     meaning: you are frightened because you think that something very unpleasant is going to happen to you
     example: She did not seem at all afraid.
+    scope:
+      - ket
   - word: after
     meaning: it happens during the period of time that follows that date or event
+    scope:
+      - ket
   - word: afternoon
     meaning: the part of each day which begins at lunchtime and ends at about six o'clock
     example: He's arriving in the afternoon.
+    scope:
+      - ket
   - word: afterwards
     meaning: you do it or it happens after a particular event or time that has already been mentioned
     example: Shortly afterwards, police arrested four suspects.
+    scope:
+      - ket
   - word: again
     meaning: indicate that something happens a second time, or after it has already happened before
     example: He kissed her again.
+    scope:
+      - ket
   - word: age
     meaning: the number of years that you have lived
     example: She has a nephew who is just ten years of age.
+    scope:
+      - ket
   - word: ago
     meaning: you are referring to past time
     example: He was killed a few days ago in a skiing accident.
+    scope:
+      - ket
   - word: agree
     meaning: they have the same opinion about it or say that they have the same opinion
     example: So we both agree there's a problem?
+    scope:
+      - ket
   - word: air
     meaning: the mixture of gases which forms the Earth's atmosphere and which we breathe
+    scope:
+      - ket
   - word: airport
     meaning: a place where aircraft land and take off, which has buildings and facilities for passengers
+    scope:
+      - ket
   - word: all
     meaning: indicate that you are referring to the whole of a particular group or thing or to everyone or everything of a particular kind
     example: He lost all his money at a blackjack table in Las Vegas.
+    scope:
+      - ket
   - word: almost
     meaning: indicate that something is not completely the case but is nearly the case
     example: The couple had been dating for almost three years.
+    scope:
+      - ket
   - word: alone
     meaning: you are not with any other people
     example: He was all alone in the middle of the hall.
+    scope:
+      - ket
   - word: already
     meaning: to show that something has happened, or that something had happened before the moment you are referring to
     example: The group has already shed 10,000 jobs.
+    scope:
+      - ket
   - word: also
     meaning: in addition; too
+    scope:
+      - ket
   - word: always
     meaning: you do it whenever a particular situation occurs
     example: She's always late for everything.
+    scope:
+      - ket
   - word: amazing
     meaning: it is very surprising and makes you feel pleasure, approval, or wonder
     example: It's amazing what we can remember with a little prompting.
+    scope:
+      - ket
   - word: ambulance
     meaning: a vehicle for taking people to and from hospital
+    scope:
+      - ket
   - word: angry
     meaning: you feel strong dislike or impatience about something
     example: Are you angry with me for some reason?
+    scope:
+      - ket
   - word: animal
     meaning: g creature such as a dog, lion, or rabbit, rather than a bird, fish, insect, or human being
     example: He was attacked by wild animals.
@@ -142,399 +210,805 @@ dictionary:
   - word: another
     meaning: an additional thing or person of the same type as one that already exists
     example: We're going to have another baby.
+    scope:
+      - ket
   - word: answer
     meaning: someone who has asked you something, you say something back to them
     example: Just answer the question.
+    scope:
+      - ket
   - word: antique
     scope:
       - ielts
   - word: anyway
     meaning: indicate that a statement explains or supports a previous point
+    scope:
+      - ket
   - word: apartment
     meaning: a set of rooms for living in, usually on one floor of a large building
+    scope:
+      - ket
   - word: apple
     meaning: a round fruit with smooth green, yellow, or red skin and firm white flesh
+    scope:
+      - ket
   - word: appointment
     meaning: a job or position of responsibility
+    scope:
+      - ket
   - word: area
     meaning: a particular part of a town, a country, a region, or the world
+    scope:
+      - ket
   - word: arm
     meaning: the two long parts of your body that are attached to your shoulders and that have your hands at the end
+    scope:
+      - ket
   - word: arrive
     meaning: they come to it at the end of a journey
+    scope:
+      - ket
   - word: art
     meaning: consists of paintings, sculpture, and other pictures or objects which are created for people to look at and admire or think deeply about
     scope:
       - pep-4
   - word: article
     meaning: a piece of writing that is published in a newspaper or magazine
+    scope:
+      - ket
   - word: artist
     meaning: someone who draws or paints pictures or creates sculptures as a job or a hobby
+    scope:
+      - ket
   - word: ask
     meaning: you say something to them in the form of a question because you want to know the answer
+    scope:
+      - ket
   - word: assistant
     meaning: used in front of titles or jobs to indicate a slightly lower rank
+    scope:
+      - ket
   - word: aunt
     meaning: the sister of their mother or father, or the wife of their uncle
+    scope:
+      - ket
   - word: autumn
     meaning: the season between summer and winter when the weather becomes cooler and the leaves fall off the trees
+    scope:
+      - ket
   - word: away
     meaning: they move or are moved so that they are no longer there
+    scope:
+      - ket
   - word: baby
     meaning: a very young child
     example: his wife's just had a baby
+    scope:
+      - ket
   - word: back
     meaning: the rear surface of the human body from the shoulders to the hips
     example: he lay on his back
+    scope:
+      - ket
   - word: bad
     meaning: of poor quality or a low standard
     example: a bad diet
+    scope:
+      - ket
   - word: bag
     meaning: a flexible container with an opening at the top, used for carrying things
     example: he arrived at the children's ward carrying a bag full of toys for the young patients
+    scope:
+      - ket
   - word: ball
     meaning: a solid or hollow spherical or egg-shaped object that is kicked, thrown, or hit in a game
     example: a cricket ball
+    scope:
+      - ket
   - word: banana
     meaning: a long curved fruit which grows in clusters and has soft pulpy flesh and yellow skin when ripe
     example: a bunch of bananas
+    scope:
+      - ket
   - word: band
     meaning: a flat, thin strip or loop of material, used as a fastener, for reinforcement, or as decoration
     example: wads of banknotes fastened with gummed paper bands
+    scope:
+      - ket
   - word: bank
     meaning: a long, high mass or mound of a particular substance
     example: a grassy bank
+    scope:
+      - ket
   - word: barbecue
     meaning: a meal or gathering at which meat, fish, or other food is cooked out of doors on a rack over an open fire or on a special appliance
     example: in the evening there was a barbecue
+    scope:
+      - ket
   - word: baseball
     meaning: a ball game played between two teams of nine on a diamond-shaped circuit of four bases. It is played chiefly as a warm-weather sport in the US and Canada
     example: a game of baseball
+    scope:
+      - ket
   - word: basketball
     meaning: a game played between two teams of five players in which goals are scored by throwing a ball through a netted hoop fixed at each end of the court
     example: I played basketball at college
+    scope:
+      - ket
   - word: bath
     meaning: a large container for water, used for immersing and washing the body
     example: the bedrooms have their own bath and shower
+    scope:
+      - ket
   - word: bathroom
     meaning:
     example:
+    scope:
+      - ket
   - word: beach
     meaning:
     example:
+    scope:
+      - ket
   - word: bear
     meaning:
     example:
+    scope:
+      - ket
   - word: beautiful
     meaning:
     example:
+    scope:
+      - ket
   - word: because
     meaning:
     example:
+    scope:
+      - ket
   - word: become
     meaning:
     example:
+    scope:
+      - ket
   - word: bed
     meaning:
     example:
+    scope:
+      - ket
   - word: bedroom
     meaning:
     example:
+    scope:
+      - ket
   - word: before
     meaning:
     example:
+    scope:
+      - ket
   - word: begin
     meaning:
     example:
+    scope:
+      - ket
   - word: beginner
     meaning:
     example:
+    scope:
+      - ket
   - word: behind
     meaning:
     example:
+    scope:
+      - ket
   - word: believe
     meaning:
     example:
+    scope:
+      - ket
   - word: belong
     meaning:
     example:
+    scope:
+      - ket
   - word: below
     meaning:
     example:
+    scope:
+      - ket
   - word: belt
     meaning:
     example:
+    scope:
+      - ket
   - word: between
     meaning:
     example:
+    scope:
+      - ket
   - word: bicycle
     meaning:
     example:
+    scope:
+      - ket
   - word: big
     meaning:
     example:
+    scope:
+      - ket
   - word: bike
     meaning:
     example:
+    scope:
+      - ket
   - word: bill
     meaning:
     example:
+    scope:
+      - ket
   - word: bird
     meaning:
     example:
+    scope:
+      - ket
   - word: birthday
     meaning:
     example:
+    scope:
+      - ket
   - word: biscuit
     meaning:
     example:
+    scope:
+      - ket
   - word: bit
     meaning:
     example:
+    scope:
+      - ket
   - word: black
     meaning:
     example:
+    scope:
+      - ket
   - word: blanket
     meaning:
     example:
+    scope:
+      - ket
   - word: blond
     meaning:
     example:
+    scope:
+      - ket
   - word: blouse
     meaning:
     example:
+    scope:
+      - ket
   - word: blue
     meaning:
     example:
+    scope:
+      - ket
   - word: board
     meaning:
     example:
+    scope:
+      - ket
   - word: boat
     meaning:
     example:
+    scope:
+      - ket
   - word: body
     meaning:
     example:
+    scope:
+      - ket
   - word: boil
     meaning:
     example:
+    scope:
+      - ket
   - word: book
     meaning:
     example:
+    scope:
+      - ket
   - word: bookshelf
     meaning:
     example:
+    scope:
+      - ket
   - word: bookshop
     meaning:
     example:
+    scope:
+      - ket
   - word: boot
     meaning:
     example:
+    scope:
+      - ket
   - word: bored
     meaning:
     example:
+    scope:
+      - ket
   - word: boring
     meaning:
     example:
+    scope:
+      - ket
   - word: born
     meaning:
     example:
+    scope:
+      - ket
   - word: borrow
     meaning:
     example:
+    scope:
+      - ket
   - word: boss
     meaning:
     example:
+    scope:
+      - ket
   - word: bot
     meaning:
     example:
+    scope:
+      - ket
   - word: bottle
     meaning:
     example:
+    scope:
+      - ket
   - word: bottom
     meaning:
     example:
+    scope:
+      - ket
   - word: bowl
     meaning:
     example:
+    scope:
+      - ket
   - word: box
     meaning:
     example:
+    scope:
+      - ket
   - word: boy
     meaning:
     example:
+    scope:
+      - ket
   - word: brake
     meaning:
     example:
+    scope:
+      - ket
   - word: bread
     meaning:
     example:
+    scope:
+      - ket
   - word: break
     meaning:
     example:
+    scope:
+      - ket
   - word: breakfast
     meaning:
     example:
+    scope:
+      - ket
   - word: bridge
     meaning:
     example:
+    scope:
+      - ket
   - word: brilliant
     meaning:
     example:
+    scope:
+      - ket
   - word: bring
     meaning:
     example:
+    scope:
+      - ket
   - word: brother
     meaning:
     example:
+    scope:
+      - ket
   - word: brown
     meaning:
     example:
+    scope:
+      - ket
   - word: build
     meaning:
     example:
+    scope:
+      - ket
   - word: building
     meaning:
     example:
+    scope:
+      - ket
   - word: burger
     meaning:
     example:
+    scope:
+      - ket
   - word: burn
     meaning:
     example:
+    scope:
+      - ket
   - word: bus
     meaning:
     example:
+    scope:
+      - ket
   - word: business
     meaning:
     example:
+    scope:
+      - ket
   - word: businessman
     meaning:
     example:
+    scope:
+      - ket
   - word: businesswoman
     meaning:
     example:
+    scope:
+      - ket
   - word: busy
     meaning:
     example:
+    scope:
+      - ket
   - word: but
     meaning:
     example:
+    scope:
+      - ket
   - word: butter
     meaning:
     example:
+    scope:
+      - ket
   - word: buy
     meaning:
     example:
+    scope:
+      - ket
   - word: cafe
+    scope:
+      - ket
   - word: cake
+    scope:
+      - ket
   - word: call
+    scope:
+      - ket
   - word: camel
+    scope:
+      - ket
   - word: camera
+    scope:
+      - ket
   - word: camp
+    scope:
+      - ket
   - word: campsite
+    scope:
+      - ket
   - word: can
+    scope:
+      - ket
   - word: canal
+    scope:
+      - ket
   - word: car
+    scope:
+      - ket
   - word: card
+    scope:
+      - ket
   - word: career
+    scope:
+      - ket
   - word: careful
+    scope:
+      - ket
   - word: carpet
+    scope:
+      - ket
   - word: carrot
+    scope:
+      - ket
   - word: carry
+    scope:
+      - ket
   - word: cartoon
+    scope:
+      - ket
   - word: cash
+    scope:
+      - ket
   - word: castle
+    scope:
+      - ket
   - word: cat
+    scope:
+      - ket
   - word: catch
+    scope:
+      - ket
   - word: cathedral
+    scope:
+      - ket
   - word: cent
+    scope:
+      - ket
   - word: centre
+    scope:
+      - ket
   - word: centimetre
+    scope:
+      - ket
   - word: century
+    scope:
+      - ket
   - word: certain
+    scope:
+      - ket
   - word: chair
+    scope:
+      - ket
   - word: change
+    scope:
+      - ket
   - word: channel
+    scope:
+      - ket
   - word: chat
+    scope:
+      - ket
   - word: chatroom
+    scope:
+      - ket
   - word: cheap
+    scope:
+      - ket
   - word: check
+    scope:
+      - ket
   - word: cheers
+    scope:
+      - ket
   - word: cheese
+    scope:
+      - ket
   - word: chemist
+    scope:
+      - ket
   - word: cheque
+    scope:
+      - ket
   - word: chicken
+    scope:
+      - ket
   - word: child
+    scope:
+      - ket
   - word: chips
+    scope:
+      - ket
   - word: chocolate
+    scope:
+      - ket
   - word: choose
+    scope:
+      - ket
   - word: church
+    scope:
+      - ket
   - word: cinema
+    scope:
+      - ket
   - word: circus
+    scope:
+      - ket
   - word: city
+    scope:
+      - ket
   - word: class
+    scope:
+      - ket
   - word: classical
+    scope:
+      - ket
   - word: classmate
+    scope:
+      - ket
   - word: classroom
+    scope:
+      - ket
   - word: clean
+    scope:
+      - ket
   - word: clear
+    scope:
+      - ket
   - word: clever
+    scope:
+      - ket
   - word: click
+    scope:
+      - ket
   - word: climb
+    scope:
+      - ket
   - word: clock
+    scope:
+      - ket
   - word: close
+    scope:
+      - ket
   - word: clothes
+    scope:
+      - ket
   - word: cloud
+    scope:
+      - ket
   - word: cloudy
+    scope:
+      - ket
   - word: clown
+    scope:
+      - ket
   - word: club
+    scope:
+      - ket
   - word: coach
+    scope:
+      - ket
   - word: coat
+    scope:
+      - ket
   - word: coffee
+    scope:
+      - ket
   - word: clod
+    scope:
+      - ket
   - word: colleague
+    scope:
+      - ket
   - word: collect
+    scope:
+      - ket
   - word: college
+    scope:
+      - ket
   - word: colour
+    scope:
+      - ket
   - word: comb
+    scope:
+      - ket
   - word: come
+    scope:
+      - ket
   - word: comfortable
+    scope:
+      - ket
   - word: company
+    scope:
+      - ket
   - word: competition
+    scope:
+      - ket
   - word: computer
+    scope:
+      - ket
   - word: concert
+    scope:
+      - ket
   - word: congratulation
+    scope:
+      - ket
   - word: conversation
+    scope:
+      - ket
   - word: cook
+    scope:
+      - ket
   - word: cooker
+    scope:
+      - ket
   - word: cool
+    scope:
+      - ket
   - word: corner
+    scope:
+      - ket
   - word: correct
+    scope:
+      - ket
   - word: cost
+    scope:
+      - ket
   - word: costume
+    scope:
+      - ket
   - word: could
+    scope:
+      - ket
   - word: country
+    scope:
+      - ket
   - word: countryside
+    scope:
+      - ket
   - word: course
     scope:
       - ielts
       - ket
   - word: cousin
+    scope:
+      - ket
   - word: cow
+    scope:
+      - ket
   - word: cream
+    scope:
+      - ket
   - word: credit
+    scope:
+      - ket
   - word: cross
+    scope:
+      - ket
   - word: crossroad
+    scope:
+      - ket
   - word: crowd
+    scope:
+      - ket
   - word: cry
+    scope:
+      - ket
   - word: cup
+    scope:
+      - ket
   - word: cupboard
+    scope:
+      - ket
   - word: curtains
+    scope:
+      - ket
   - word: customer
+    scope:
+      - ket
   - word: cut
+    scope:
+      - ket
   - word: cycle
+    scope:
+      - ket
   - word: carpet
+    scope:
+      - ket
   - word: dirty
     scope:
       - ielts
@@ -645,11 +1119,18 @@ dictionary:
       - ielts
   - word: school
     meaning: a place where children are educated
+    scope:
+      - ket
   - word: student
     scope:
       - ielts
   - word: zero
+    scope:
+      - ket
   - word: zoo
+    scope:
+      - ket
 scope:
   # https://engdic.org/ielts-vocabulary-words/
   ielts: International English Language Testing System
+  ket: Key English Test

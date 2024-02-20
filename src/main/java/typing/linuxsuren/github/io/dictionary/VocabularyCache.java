@@ -17,9 +17,12 @@ limitations under the License.
 package typing.linuxsuren.github.io.dictionary;
 
 import java.util.List;
+import java.util.Map;
 
 public class VocabularyCache {
     private List<Vocabulary> vocabularyList;
+    private Map<String, String> scope;
+
     private static final VocabularyCache instance = new VocabularyCache();
 
     private VocabularyCache() {}
@@ -34,5 +37,13 @@ public class VocabularyCache {
 
     public void setVocabularyList(List<Vocabulary> vocabularyList) {
         this.vocabularyList = vocabularyList;
+    }
+
+    public Map<String, String> getScope() {
+        return scope;
+    }
+
+    public void setScope(Map<String, String> scope) {
+        this.scope = scope;
     }
 }
