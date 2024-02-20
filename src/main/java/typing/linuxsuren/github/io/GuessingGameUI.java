@@ -67,6 +67,7 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
 
         scopeList.addItem("All");
         scopeList.addItem("ket");
+        scopeList.addItem("pet");
         scopeList.addItem("ielts");
         scopeList.addItem("toefl");
         scopeList.addItemListener(new ItemListener() {
