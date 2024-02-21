@@ -20,11 +20,10 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import typing.linuxsuren.github.io.dictionary.FreeDictionaryAPI;
 import typing.linuxsuren.github.io.dictionary.Vocabulary;
-import typing.linuxsuren.github.io.dictionary.VocabularyCache;
+import typing.linuxsuren.github.io.stream.RandomSort;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
@@ -70,12 +69,10 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         scopeList.addItem("pet");
         scopeList.addItem("ielts");
         scopeList.addItem("toefl");
-        scopeList.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getSource() == scopeList && e.getStateChange() == ItemEvent.SELECTED) {
-                    loadNextVocabulary(scopeList.getSelectedItem().toString());
-                }
+        scopeList.addItemListener((e) -> {
+            if (e.getSource() == scopeList && e.getStateChange() == ItemEvent.SELECTED) {
+                loadNextVocabulary(scopeList.getSelectedItem().toString());
+                scopeList.transferFocus();
             }
         });
     }
@@ -131,9 +128,11 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
             return;
         }
 
-        Optional<Vocabulary> potentionVol = vocabularyList.stream().filter(new VocabularyFilter(scope)).findAny();
-        if (potentionVol.isPresent()) {
-            nextVocabulary = potentionVol.get();
+        Optional<Vocabulary> potentialVol = vocabularyList.stream().filter(new VocabularyFilter(scope))
+                .sorted(new RandomSort())
+                .findAny();
+        if (potentialVol.isPresent()) {
+            nextVocabulary = potentialVol.get();
         } else {
             return;
         }
@@ -287,6 +286,9 @@ class VocabularyFilter implements Predicate<Vocabulary> {
 
     @Override
     public boolean test(Vocabulary vocabulary) {
+        if (scope.equalsIgnoreCase("all")) {
+            return true;
+        }
         if (vocabulary.getScope() == null) {
             return true;
         }

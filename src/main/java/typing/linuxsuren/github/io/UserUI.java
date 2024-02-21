@@ -27,7 +27,7 @@ import java.util.TimerTask;
 
 public class UserUI extends JPanel {
     private JTextField username = new JTextField(20);
-    private JTextField password = new JTextField(20);
+    private JTextField password = new JPasswordField(20);
     private UserService userSvc = UserService.getInstance();
     private JButton loginBut = new JButton("Login");
     private JButton createBut = new JButton("Create");
