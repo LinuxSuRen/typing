@@ -14,27 +14,24 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package typing.linuxsuren.github.io.stream;
-import static org.junit.Assert.assertNotEquals;
+package typing.linuxsuren.github.io.util;
+
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-public class TestRandomSort {
+import static org.junit.Assert.assertEquals;
+
+public class TestArrayLists {
     @Test
-    public void testCompare() {
-        List<String> array = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            array.add("" + i);
-        }
+    public void testAddUniqueItem() {
+        List<String> items = new ArrayList<>();
+        ArrayLists.addUniqueItem(items, "a");
+        ArrayLists.addUniqueItem(items, "a");
+        ArrayLists.addUniqueItem(items, "a");
+        ArrayLists.addUniqueItem(items, "b");
 
-        assertNotEquals(getRandomItem(array), getRandomItem(array));
-    }
-
-    private String getRandomItem(List<String> array) {
-        Optional<String> item = array.stream().sorted(new RandomSort()).findAny();
-        return item.get();
+        assertEquals(2, items.size());
     }
 }
