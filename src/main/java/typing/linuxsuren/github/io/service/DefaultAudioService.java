@@ -71,10 +71,10 @@ public class DefaultAudioService implements AudioService {
                     .build();
 
             HttpClient client = HttpClient.newHttpClient();
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<byte[]> response = client.send(request, HttpResponse.BodyHandlers.ofByteArray());
 
             if (response.statusCode() == 200 || response.statusCode() == 304) {
-                out.write(response.body().getBytes());
+                out.write(response.body());
             }
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
@@ -102,5 +102,11 @@ public class DefaultAudioService implements AudioService {
     @Override
     public void setCacheDir(String cacheDir) {
         this.cacheDir = cacheDir;
+    }
+
+    @Override
+    public boolean hasCache(String word) {
+        File file = getMp3File(word);
+        return file.exists() && file.length() > 0 && file.canRead();
     }
 }
