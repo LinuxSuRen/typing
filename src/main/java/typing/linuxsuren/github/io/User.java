@@ -16,14 +16,22 @@ limitations under the License.
 
 package typing.linuxsuren.github.io;
 
+import typing.linuxsuren.github.io.util.ArrayLists;
+
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Users could learn vocabulary in the following path:
+ * learned -> familiar -> mine
+ */
 public class User {
     private String name;
     private String password;
     private boolean isParent;
     private List<String> learnedWords;
+    private List<String> familiarWords;
+    private List<String> mineWords;
     private int score;
     private long learnedTime; // in minutes
     public User() {}
@@ -32,6 +40,29 @@ public class User {
         this.name = name;
         this.password = password;
     }
+
+    public boolean addLearnedWord(String word) {
+        if (learnedWords == null) {
+            learnedWords = new ArrayList<>();
+        }
+        return ArrayLists.addUniqueItem(learnedWords, word);
+    }
+
+    public boolean addFamiliarWord(String word) {
+        if (familiarWords == null) {
+            familiarWords = new ArrayList<>();
+        }
+        return ArrayLists.addUniqueItem(familiarWords, word);
+    }
+
+    public boolean addMineWord(String word) {
+        if (mineWords == null) {
+            mineWords = new ArrayList<>();
+        }
+        return ArrayLists.addUniqueItem(mineWords, word);
+    }
+
+    /** below are the getter and setter methods **/
 
     public String getName() {
         return name;
@@ -61,25 +92,24 @@ public class User {
         return learnedWords;
     }
 
-    public boolean addLearnedWord(String word) {
-        if (learnedWords == null) {
-            learnedWords = new ArrayList<>();
-        }
-        boolean nonExist = true;
-        for (String w : learnedWords) {
-            if (w.equals(word)) {
-                nonExist = false;
-                break;
-            }
-        }
-        if (nonExist) {
-            learnedWords.add(word);
-        }
-        return nonExist;
-    }
-
     public void setLearnedWords(List<String> learnedWords) {
         this.learnedWords = learnedWords;
+    }
+
+    public List<String> getFamiliarWords() {
+        return familiarWords;
+    }
+
+    public void setFamiliarWords(List<String> familiarWords) {
+        this.familiarWords = familiarWords;
+    }
+
+    public List<String> getMineWords() {
+        return mineWords;
+    }
+
+    public void setMineWords(List<String> mineWords) {
+        this.mineWords = mineWords;
     }
 
     public int getScore() {

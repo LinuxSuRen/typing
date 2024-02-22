@@ -16,27 +16,23 @@ limitations under the License.
 
 package typing.linuxsuren.github.io;
 
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.Player;
+import typing.linuxsuren.github.io.component.SentencePanel;
+import typing.linuxsuren.github.io.component.WordPanel;
 import typing.linuxsuren.github.io.dictionary.FreeDictionaryAPI;
 import typing.linuxsuren.github.io.dictionary.Vocabulary;
-import typing.linuxsuren.github.io.stream.RandomSort;
+import typing.linuxsuren.github.io.service.DefaultAudioService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.*;
 import java.util.List;
 import java.util.function.Predicate;
 
 public class GuessingGameUI extends JPanel implements KeyFire<String> {
-    private final JPanel vocabularyPanel = new JPanel();
-    private final JPanel meaningPanel = new JPanel();
-    private final JPanel examplePanel = new JPanel();
+    private final WordPanel vocabularyPanel = new WordPanel(WordPanel.ShowMode.Half);
+    private final SentencePanel meaningPanel = new SentencePanel();
+    private final SentencePanel examplePanel = new SentencePanel();
     private final JPanel statusPanel = new JPanel();
     private final JLabel statusLabel = new JLabel();
     private final JComboBox<String> scopeList = new JComboBox<>();
@@ -111,25 +107,12 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
 
     private Vocabulary nextVocabulary;
     private void loadNextVocabulary(String scope) {
-        long b = vocabularyList.stream().filter((a) -> {
-            if (a.getScope() == null || a.getScope().length == 0) {
-                return true;
-            }
-
-            for (String s : a.getScope()) {
-                if (s.equals(scope)) {
-                    return true;
-                }
-            }
-            return false;
-        }).count();
-
         if (vocabularyList.isEmpty()) {
             return;
         }
 
+        Collections.shuffle(vocabularyList);
         Optional<Vocabulary> potentialVol = vocabularyList.stream().filter(new VocabularyFilter(scope))
-                .sorted(new RandomSort())
                 .findAny();
         if (potentialVol.isPresent()) {
             nextVocabulary = potentialVol.get();
@@ -147,58 +130,21 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
         Users users = UserService.getInstance().read();
 
         targets.clear();
-        meaningPanel.removeAll();
-        for (String c : nextVocabulary.getMeaning().split("")) {
-            JLabel label = newLabel(c);
-            label.setName(c);
-            label.setFont(new Font("",Font.PLAIN, users.getFont()));
-            label.setOpaque(true);
-            meaningPanel.add(label);
-            targets.add(label);
-        }
-        hideRestPart(meaningPanel, 10);
+        meaningPanel.setFont(users.getFont());
+        meaningPanel.loadSentence(nextVocabulary.getMeaning(), 3);
+        this.hiddenIndex = meaningPanel.getVisibleLettersCount();
+        System.out.println("hiddenIndex:" + hiddenIndex);
+        targets.addAll(meaningPanel.getLetters());
 
-        vocabularyPanel.removeAll();
-        vocabularyPanel.setName(nextVocabulary.getWord());
-        for (int i = 0; i < nextVocabulary.getWord().split("").length; i++) {
-            String c = nextVocabulary.getWord().split("")[i];
-            JLabel label = newLabel(c);
-            label.setName(c);
-            label.setFont(new Font("",Font.PLAIN, users.getFont()));
-            if (i % 2 != 0) {
-                label.setText("_");
-                targets.add(label);
-            }
-            vocabularyPanel.add(label);
-        }
+        vocabularyPanel.setWord(nextVocabulary.getWord());
+        vocabularyPanel.setFont(users.getFont());
+        targets.addAll(vocabularyPanel.getHiddenLetters());
 
-        examplePanel.removeAll();
-        if (nextVocabulary.getExample() != null) {
-            for (String c : nextVocabulary.getExample().split("")) {
-                JLabel label = newLabel(c);
-                label.setFont(new Font("",Font.PLAIN, users.getFont()));
-                examplePanel.add(label);
-            }
-        }
+        examplePanel.setFont(users.getFont());
+        examplePanel.loadSentence(nextVocabulary.getExample(), -1);
         examplePanel.setVisible(false);
         revalidate();
         repaint();
-    }
-
-    private JLabel newLabel(String text) {
-        JLabel label = new JLabel(text);
-        label.setFont(new Font("", Font.PLAIN, 20));
-        return label;
-    }
-
-    private void hideRestPart(JComponent com, int count) {
-        Component[] children = com.getComponents();
-        if (children.length > count) {
-            hiddenIndex = count;
-            for (int i = count; i < children.length; i++) {
-                children[i].setVisible(false);
-            }
-        }
     }
 
     @Override
@@ -217,7 +163,7 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
                 examplePanel.setVisible(true);
 
                 // play the audio
-                playWord(vocabularyPanel.getName());
+                new DefaultAudioService().play(vocabularyPanel.getName());
             }
             return;
         }
@@ -250,31 +196,17 @@ public class GuessingGameUI extends JPanel implements KeyFire<String> {
 
     private void showNextLetter() {
         if (targets.size() > hiddenIndex) {
-            targets.get(hiddenIndex).setVisible(true);
+            JLabel label = targets.get(hiddenIndex);
+            label.setVisible(true);
+            if (label.getText().isEmpty()) {
+                label.setText(label.getName());
+            }
         }
     }
 
     private void updateStatusPanel() {
         long total = this.vocabularyList.stream().filter(new VocabularyFilter(scopeList.getSelectedItem().toString())).count();
         statusLabel.setText("Remain: " + total);
-    }
-
-    private void playWord(String word) {
-        // play the audio
-        new Thread(() -> {
-            try {
-                URL api = new URL("https://cdn.yourdictionary.com/audio/en/" + word + ".mp3");
-
-                Player playMP3 = new Player(api.openStream());
-                playMP3.play();
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (JavaLayerException e) {
-                throw new RuntimeException(e);
-            }
-        }).start();
     }
 }
 

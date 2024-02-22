@@ -14,18 +14,28 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package typing.linuxsuren.github.io.stream;
+package typing.linuxsuren.github.io.util;
 
-import java.util.Comparator;
-import java.util.Random;
+import java.util.List;
 
-public class RandomSort implements Comparator<Object> {
-    @Override
-    public int compare(Object o1, Object o2) {
-        int a = new Random().nextInt(4) - 2;
-        if (a < -1) {
-            a = -1;
+public class ArrayLists {
+    /**
+     * Add the unique item into a list
+     * @param list
+     * @param item
+     * @return true if the item does not exist
+     */
+    public static boolean addUniqueItem(List<String> list, String item) {
+        boolean nonExist = true;
+        for (String w : list) {
+            if (w.equals(item)) {
+                nonExist = false;
+                break;
+            }
         }
-        return a;
+        if (nonExist) {
+            list.add(item);
+        }
+        return nonExist;
     }
 }
