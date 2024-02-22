@@ -24,4 +24,6 @@ public interface AudioService {
     void saveCacheAsync(String word);
 
     void setCacheDir(String cacheDir);
+
+    boolean hasCache(String word);
 }

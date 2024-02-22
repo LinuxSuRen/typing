@@ -46,8 +46,6 @@ public class WordPanel extends JPanel implements MouseListener {
     }
 
     public void setWord(String word) {
-        this.word = word;
-        this.setName(word);
         this.removeAll();
         this.hiddenLetters.clear();
 
@@ -69,6 +67,9 @@ public class WordPanel extends JPanel implements MouseListener {
             this.allLetters.add(label);
         }
         new DefaultAudioService().saveCacheAsync(word);
+
+        this.word = word.replace(",", "").replace(".", "");
+        this.setName(this.word);
     }
 
     public List<JLabel> getHiddenLetters() {
@@ -79,16 +80,13 @@ public class WordPanel extends JPanel implements MouseListener {
         return allLetters;
     }
 
-    public void showLetter(String letter) {
-        if (hiddenLetters.isEmpty()) {
-            return;
+    public boolean haveHiddenLetters() {
+        for (JLabel label : hiddenLetters) {
+            if (label.getText().equals(hiddenPlaceHolder)) {
+                return true;
+            }
         }
-
-        JLabel targetLabel = hiddenLetters.get(0);
-        if (targetLabel.getName().equals(letter)) {
-            targetLabel.setText(letter);
-            hiddenLetters.remove(0);
-        }
+        return false;
     }
 
     public void setFont(int font) {
@@ -99,9 +97,13 @@ public class WordPanel extends JPanel implements MouseListener {
         this.hiddenPlaceHolder = hiddenPlaceHolder;
     }
 
+    private boolean canPlay() {
+        return new DefaultAudioService().hasCache(this.word) && !haveHiddenLetters();
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (e.getClickCount() == 1 && hiddenLetters.isEmpty()) {
+        if (e.getClickCount() == 1 && canPlay()) {
             new DefaultAudioService().play(word);
         }
     }
@@ -118,7 +120,9 @@ public class WordPanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        // no need
+        if (canPlay()) {
+            this.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
     }
 
     @Override
